@@ -1,136 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dedeco - Precision Abrasives &amp; Burs Since 1939</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@700&family=Poppins:wght@400&family=Geist:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    /* =========================================================
-       DESIGN TOKENS - exact from Figma
-    ========================================================= */
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
     :root {
-      --navy:         #00285A;
-      --navy-mid:     #033074;
-      --navy-light:   #1A457B;
-      --red:          #951C34;
-      --blue-badge:   #0036AD;
-      --yellow:       #FFC800;
-      --green:        #05DF72;
-      --white:        #FDFDFD;
-      --gray-25:      #FDFDFD;
-      --gray-50:      #FAFAFA;
-      --gray-200:     #E9EAEB;
-      --gray-500:     #717680;
-      --gray-700:     #414651;
-      --gray-900:     #09090D;
-      --black:        #000613;
-      --body-text:    #3C3C3C;
-      --hero-bg-from: #E8EAF4;
-      --hero-bg-to:   #F3F5FC;
+      --navy:        #00285a;
+      --navy-mid:    #033074;
+      --navy-light:  #1a457b;
+      --red:         #951c34;
+      --blue:        #0036ad;
+      --yellow:      #ffc800;
+      --green:       #05df72;
+      --white:       #fdfdfd;
+      --off-white:   #fafafa;
+      --border:      #e9eaeb;
+      --border-card: #d5d7da;
+      --gray-400:    #717680;
+      --gray-700:    #414651;
+      --text:        #181d27;
+      --text-body:   #3c3c3c;
+      --text-sub:    #252b37;
+      --hero-from:   #e8eaf4;
+      --hero-to:     #f3f5fc;
+      --industry-bg: #f7f9ff;
+      --contact-bg:  #e2ebff;
+      --footer-bg:   #010309;
     }
 
+    /* ============================================================
+       RESET
+    ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--gray-900); background: #fff; }
-    img { display: block; max-width: 100%; }
+    html { font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; min-width: 1440px; overflow-x: hidden; }
+    img { display: block; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
 
-    /* =========================================================
+    /* ============================================================
        UTILITY BAR
-    ========================================================= */
+    ============================================================ */
     .util-bar {
       background: var(--navy);
       height: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
-    .util-bar-items {
+    .util-bar-inner {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 0;
     }
     .util-item {
       display: flex;
       align-items: center;
       gap: 8px;
       color: var(--white);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       white-space: nowrap;
+      padding: 0 20px;
     }
-    .util-dot {
-      width: 10px; height: 10px;
-      background: var(--green);
-      opacity: 0.53;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(74,222,128,0.8);
-      flex-shrink: 0;
-    }
+    .util-item:first-child { padding-left: 0; }
     .util-sep {
-      width: 1px; height: 20px;
+      width: 1px;
+      height: 20px;
       background: rgba(255,255,255,0.2);
       flex-shrink: 0;
     }
-    .util-icon { width: 16px; height: 16px; flex-shrink: 0; }
+    .util-dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+    .util-icon { width: 16px; height: 16px; flex-shrink: 0; object-fit: contain; }
 
-    /* =========================================================
-       HEADER / NAV
-    ========================================================= */
+    /* ============================================================
+       HEADER
+    ============================================================ */
     .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
       background: var(--white);
-      border-bottom: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--border);
+      height: 81px;
+      display: flex;
+      align-items: center;
     }
     .header-inner {
-      height: 80px;
-      padding: 0 44px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-    .header-left {
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
       display: flex;
       align-items: center;
       gap: 40px;
-      flex: 1;
     }
-    .logo-img { height: 40px; width: auto; }
-    .logo-text {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.5px;
-    }
+    .logo img { width: 110px; height: 40px; object-fit: contain; }
     .nav {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
+      flex: 1;
     }
-    .nav-btn {
+    .nav-link {
       display: flex;
       align-items: center;
-      gap: 6px;
-      height: 36px;
-      padding: 0 16px;
+      gap: 5px;
+      padding: 8px 12px;
       font-size: 14px;
       font-weight: 500;
       color: var(--gray-700);
-      border-radius: 10px 10px 0 0;
-      transition: background 0.15s;
+      border-radius: 6px;
       white-space: nowrap;
+      transition: background 0.15s;
     }
-    .nav-btn:hover { background: rgba(0,0,0,0.04); }
-    .nav-btn.highlight { color: var(--red); font-weight: 600; }
-    .nav-chevron { width: 16px; height: 16px; opacity: 0.5; }
+    .nav-link:hover { background: rgba(0,0,0,0.04); }
+    .nav-link.red { color: var(--red); }
+    .nav-link.dark { color: var(--gray-700); }
+    .nav-chevron { width: 16px; height: 16px; object-fit: contain; opacity: 0.5; }
+    .nav-chevron-svg { width: 14px; height: 14px; stroke: #717680; stroke-width: 2; fill: none; flex-shrink: 0; }
     .header-actions {
       display: flex;
       align-items: center;
@@ -139,44 +138,35 @@
     .icon-btn {
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
-      border-radius: 10px;
-      color: var(--gray-700);
-      font-size: 16px;
+      border-radius: 8px;
       transition: background 0.15s;
       position: relative;
     }
-    .icon-btn:hover { background: var(--gray-50); }
+    .icon-btn:hover { background: var(--off-white); }
+    .icon-btn img { width: 24px; height: 24px; object-fit: contain; }
     .cart-badge {
-      position: absolute;
-      top: 4px; right: 2px;
+      position: absolute; top: 4px; right: 3px;
+      width: 16px; height: 16px;
       background: var(--red);
       color: #fff;
-      font-size: 10px;
-      font-weight: 700;
-      font-family: 'Helvetica Neue', sans-serif;
-      width: 18px; height: 18px;
+      font-size: 10px; font-weight: 700;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
     }
 
-    /* =========================================================
-       VIDEO HERO  (PM change: replaces static hero)
-    ========================================================= */
+    /* ============================================================
+       HERO  (PM change: video hero with overlay)
+    ============================================================ */
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
       min-height: 580px;
+      height: 100vh;
+      max-height: 780px;
+      background: linear-gradient(to bottom, var(--hero-from), var(--hero-to));
       overflow: hidden;
     }
-    /* Static fallback - gradient matches the Figma hero bg */
-    .hero-bg-fallback {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, var(--hero-bg-from), var(--hero-bg-to));
-    }
-    /* Hero background image (the disc) used as video poster */
-    .hero-bg-img {
+    .hero-bg {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -191,64 +181,62 @@
       height: 100%;
       object-fit: cover;
     }
-    /* Dark overlay so text stays readable over video */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to right,
-        rgba(0,40,90,0.72) 0%,
-        rgba(0,40,90,0.45) 55%,
-        rgba(0,40,90,0.05) 100%
-      );
+        rgba(0,40,90,0.78) 0%,
+        rgba(0,40,90,0.50) 55%,
+        rgba(0,40,90,0.08) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      height: 100%;
       padding: 0 80px;
+      height: 100%;
       display: flex;
       align-items: center;
     }
-    .hero-text { max-width: 620px; }
+    .hero-text { max-width: 640px; }
     .hero-stars {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       margin-bottom: 20px;
     }
-    .stars-row { display: flex; gap: 3px; }
-    .star-icon {
-      width: 18px; height: 18px;
-      color: var(--yellow);
-      font-size: 16px;
-      line-height: 1;
-    }
-    .hero-stars-count {
-      font-size: 16px;
-      color: rgba(255,255,255,0.9);
+    .stars-row { display: flex; gap: 2px; }
+    .stars-row img { width: 18px; height: 18px; }
+    .hero-stars-ct {
+      font-size: 14px;
       font-weight: 400;
+      color: rgba(255,255,255,0.85);
     }
     .hero-h1 {
       font-size: 64px;
       font-weight: 600;
       color: #fff;
-      line-height: 1;
-      margin-bottom: 20px;
+      line-height: 1.05;
       letter-spacing: -0.5px;
+      margin-bottom: 16px;
     }
     .hero-sub {
       font-size: 18px;
       font-weight: 600;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.35;
-      letter-spacing: -0.15px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.4;
+      letter-spacing: -0.1504px;
       margin-bottom: 32px;
       max-width: 520px;
     }
-    .btn-navy {
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
       background: var(--navy);
       color: var(--white);
@@ -256,13 +244,10 @@
       font-weight: 500;
       padding: 12px 24px;
       border-radius: 4px;
-      letter-spacing: -0.15px;
-      transition: background 0.15s, transform 0.1s;
-      border: none;
-      cursor: pointer;
+      transition: background 0.15s;
     }
-    .btn-navy:hover { background: #001f47; transform: translateY(-1px); }
-    .btn-white-outline {
+    .hero-btn:hover { background: #001f47; }
+    .hero-btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -270,590 +255,421 @@
       color: #fff;
       font-size: 16px;
       font-weight: 500;
-      padding: 11px 24px;
+      padding: 12px 24px;
       border-radius: 4px;
-      border: 1.5px solid rgba(255,255,255,0.6);
-      transition: all 0.15s;
-      cursor: pointer;
+      border: none;
+      box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.55);
+      transition: box-shadow 0.15s;
     }
-    .btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-    .hero-cta-row { display: flex; gap: 12px; align-items: center; margin-bottom: 36px; flex-wrap: wrap; }
+    .hero-btn-outline:hover { box-shadow: inset 0 0 0 1.5px #fff; }
     .hero-trust {
       display: flex;
       align-items: center;
       gap: 8px;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.82);
       font-size: 12px;
       font-weight: 600;
     }
-    .hero-trust svg { flex-shrink: 0; }
+    .hero-trust img { width: 24px; height: 24px; flex-shrink: 0; filter: brightness(0) invert(1); }
 
-    /* =========================================================
-       BRAND LOGOS BAR
-    ========================================================= */
-    .logos-bar {
-      background: #fff;
-      border-bottom: 1px solid var(--gray-200);
+    /* ============================================================
+       BRAND LOGOS
+    ============================================================ */
+    .logos-section {
+      border-bottom: 1px solid var(--border);
       padding: 24px 0;
+      background: #fff;
       overflow: hidden;
     }
-    .logos-track {
+    .logos-inner {
       display: flex;
-      width: max-content;
-      animation: marquee 32s linear infinite;
+      justify-content: center;
+      gap: 0;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
     }
-    .logos-bar:hover .logos-track { animation-play-state: paused; }
-    .logos-set { display: flex; }
     .logo-card {
       width: 158px;
       height: 80px;
       background: #fff;
-      border: 0.67px solid var(--gray-200);
+      border: 0.67px solid var(--border);
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      margin-right: 16px;
+      margin: 0 8px;
       overflow: hidden;
-      transition: border-color 0.2s;
     }
-    .logo-card:hover { border-color: var(--navy); }
     .logo-card img {
       max-width: 110px;
       max-height: 46px;
       object-fit: contain;
-      filter: grayscale(1) opacity(0.55);
-      transition: filter 0.2s;
-    }
-    .logo-card:hover img { filter: grayscale(0) opacity(1); }
-    .logo-placeholder {
-      font-size: 14px;
-      font-weight: 800;
-      color: #bbb;
-      letter-spacing: 1px;
-      transition: color 0.2s;
-    }
-    .logo-card:hover .logo-placeholder { color: var(--navy); }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
     }
 
-    /* =========================================================
-       SHARED SECTION LAYOUT
-    ========================================================= */
-    .section-wrap { padding: 80px 0; }
-    .section-wrap.bg-light { background: #F7F8FA; }
+    /* ============================================================
+       SECTION SHARED
+    ============================================================ */
+    .section {
+      padding: 80px 0;
+    }
+    /* Alternating section colors */
+    .section.bg-light  { background: linear-gradient(160deg, #dde8ff 0%, #c9daff 100%); }
+    .section.bg-cream  { background: linear-gradient(180deg, #fffef4 0%, #fff7d6 100%); }
+    .section.bg-pale   { background: linear-gradient(160deg, #eef2ff 0%, #f4f7ff 100%); }
+    /* Navy dark section */
+    .section.bg-navy   { background: linear-gradient(135deg, #00285a 0%, #001a3e 100%); }
+    .section.bg-navy .section-eyebrow { color: var(--yellow); }
+    .section.bg-navy .section-title   { color: #fff; }
+    .section.bg-navy .view-all        { color: rgba(255,255,255,0.65); }
+    .section.bg-navy .cat-nav-btn     { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.28); }
+    .section.bg-navy .cat-nav-btn svg { stroke: #fff; }
+    .section.bg-navy .cat-nav-btn:hover { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.55); }
+    .section.bg-navy .cat-nav-btn:hover svg { stroke: #fff; }
+    /* Section eyebrow labels */
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 8px;
+    }
+    .section-title-group { display: flex; flex-direction: column; }
     .section-inner {
       max-width: 1440px;
+      width: 100%;
       margin: 0 auto;
       padding: 0 80px;
     }
-    .section-header {
+    .section-head {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 40px;
-      gap: 16px;
+      margin-bottom: 24px;
     }
     .section-title {
       font-size: 32px;
       font-weight: 700;
-      color: var(--gray-900);
+      color: #000;
       line-height: 1.2;
     }
     .view-all {
       font-size: 14px;
       font-weight: 500;
-      color: var(--navy-light);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-      opacity: 0.8;
+      color: var(--blue);
       transition: opacity 0.15s;
     }
-    .view-all:hover { opacity: 1; }
+    .view-all:hover { opacity: 0.75; }
 
-    /* =========================================================
-       PRODUCT CATEGORIES  (horizontal scroll)
-    ========================================================= */
-    .categories-scroll {
+    /* ============================================================
+       PRODUCT CATEGORIES
+    ============================================================ */
+    .cat-scroll-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-scroll {
       display: flex;
-      gap: 0;
+      gap: 16px;
       overflow-x: auto;
       scrollbar-width: none;
-      scroll-snap-type: x mandatory;
     }
-    .categories-scroll::-webkit-scrollbar { display: none; }
-    .cat-card {
+    .cat-scroll::-webkit-scrollbar { display: none; }
+    .cat-item {
       flex-shrink: 0;
-      width: 200px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-right: 1px solid var(--gray-200);
+      width: 308px;
+      height: 113px;
+      border: 1px solid #d9d9d9;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
       transition: background 0.15s;
-      scroll-snap-align: start;
+      background: #fff;
     }
-    .cat-card:first-child { border-left: 1px solid var(--gray-200); }
-    .cat-card:hover { background: #F0F4FA; }
-    .cat-img-wrap {
-      width: 72px;
-      height: 72px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #EEF3FB, #DDE6F5);
+    .cat-item:hover { background: rgba(0,0,0,0.02); }
+    .cat-img {
+      position: absolute;
+      left: -1px;
+      top: -9px;
+      width: 131px;
+      height: 131px;
+      overflow: hidden;
+    }
+    .cat-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cat-name {
+      position: absolute;
+      left: 140px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      font-weight: 700;
+      color: #09090d;
+      line-height: 1.2;
+      max-width: 155px;
+    }
+    .cat-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border: 1px solid #d5d7da;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-    .cat-img-wrap img { width: 60px; height: 60px; object-fit: contain; }
-    .cat-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gray-900);
-      line-height: 1.3;
-    }
-    .cat-nav-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .nav-circle {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gray-200);
-      background: var(--gray-50);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      color: var(--gray-700);
       cursor: pointer;
-      transition: all 0.15s;
+      z-index: 2;
+      padding: 0;
+      transition: background 0.15s, box-shadow 0.15s;
     }
-    .nav-circle:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .cat-nav-btn:hover { background: var(--navy); border-color: var(--navy); }
+    .cat-nav-btn:hover svg { stroke: #fff; }
+    .cat-nav-btn svg { width: 18px; height: 18px; stroke: #414651; stroke-width: 2; fill: none; flex-shrink: 0; transition: stroke 0.15s; }
+    .cat-prev { left: 8px; }
+    .cat-next { right: 8px; }
 
-    /* =========================================================
-       TABS
-    ========================================================= */
-    .tabs-bar {
+    /* ============================================================
+       TABS (pill style)
+    ============================================================ */
+    .tabs {
       display: flex;
-      gap: 0;
-      border-bottom: 1.5px solid var(--gray-200);
-      overflow-x: auto;
-      scrollbar-width: none;
-      margin-bottom: 32px;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
     }
-    .tabs-bar::-webkit-scrollbar { display: none; }
-    .tab {
-      flex-shrink: 0;
-      padding: 14px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray-500);
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1.5px;
-      transition: color 0.15s, border-color 0.15s;
-      white-space: nowrap;
+    .tab-pill {
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
       cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: all 0.15s;
+      white-space: nowrap;
     }
-    .tab.active { color: var(--navy); border-bottom-color: var(--navy); }
-    .tab:hover { color: var(--navy); }
+    .tab-pill.active {
+      background: #e1ebff;
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .tab-pill.inactive {
+      background: #f5f5f5;
+      color: var(--gray-400);
+    }
+    .tab-pill.inactive:hover { background: #ebebeb; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* =========================================================
+    /* ============================================================
        PRODUCT CARDS
-    ========================================================= */
+    ============================================================ */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 19px;
+      padding-bottom: 8px;
     }
-    .product-card {
-      border: 1px solid var(--gray-200);
+    .prod-card {
+      width: 100%;
+      border: 1px solid var(--border-card);
       border-radius: 12px;
       overflow: hidden;
       background: #fff;
-      transition: box-shadow 0.2s, transform 0.15s;
-      position: relative;
+      display: flex;
+      flex-direction: column;
     }
-    .product-card:hover {
-      box-shadow: 0 8px 24px rgba(0,40,90,0.1);
-      transform: translateY(-2px);
+    .prod-img {
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #f5f5f5;
     }
-    .product-tag {
-      position: absolute;
-      top: 12px; left: 12px;
-      z-index: 1;
-      background: var(--navy);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 100px;
+    .prod-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .product-tag.red { background: var(--red); }
-    .product-img {
-      height: 220px;
-      background: linear-gradient(145deg, #EEF3FB, #DDE6F5);
+    .prod-body {
+      padding: 12px 16px 8px;
+      flex: 1;
+    }
+    .prod-stars {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 4px;
+      margin-bottom: 6px;
     }
-    .product-img img { width: 160px; height: 160px; object-fit: contain; }
-    .product-body { padding: 14px 16px 0; }
-    .product-sku { font-size: 12px; color: var(--gray-500); margin-bottom: 4px; }
-    .product-stars-row {
+    .prod-stars img { width: 18px; height: 18px; }
+    .prod-stars-ct {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+    .prod-sku {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+    .prod-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .prod-spec {
+      font-size: 12px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+    .prod-footer {
+      padding: 8px 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .prod-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .prod-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-add-cart {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .btn-add-cart:hover { background: #001f47; }
+    .btn-heart {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .btn-heart:hover { background: #fafafa; }
+    .btn-heart img { width: 18px; height: 18px; }
+
+    /* Best sellers card extras */
+    .prod-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid;
+      margin-bottom: 8px;
+    }
+    .prod-grit {
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 6px;
-    }
-    .stars-sm { display: flex; gap: 2px; color: var(--yellow); font-size: 12px; }
-    .review-ct { font-size: 12px; color: var(--gray-500); }
-    .product-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gray-900);
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-    .product-specs {
       font-size: 12px;
-      color: var(--gray-500);
-      line-height: 1.5;
+      color: var(--gray-400);
       margin-bottom: 4px;
     }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      border-top: 1px solid var(--gray-200);
-      margin-top: 12px;
-    }
-    .product-price {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--gray-900);
-    }
-    .product-actions { display: flex; gap: 8px; align-items: center; }
-    .btn-add {
-      background: var(--navy);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s;
-      white-space: nowrap;
-    }
-    .btn-add:hover { background: #001f47; }
-    .btn-icon {
-      width: 34px; height: 34px;
-      border: 1px solid var(--gray-200);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-      color: var(--gray-500);
-      cursor: pointer;
-      background: #fff;
-      transition: all 0.15s;
-    }
-    .btn-icon:hover { border-color: var(--navy); color: var(--navy); }
-
-    /* =========================================================
-       CUSTOM CONFIG BANNER
-    ========================================================= */
-    .config-banner-wrap { padding: 0 80px 60px; max-width: 1440px; margin: 0 auto; }
-    .config-banner {
-      background: linear-gradient(90deg, #EDF2FB 0%, #E8EAF4 100%);
-      border: 1px solid var(--gray-200);
-      border-radius: 8px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .config-left { display: flex; align-items: center; gap: 16px; }
-    .config-icon {
-      width: 24px; height: 24px;
-      color: var(--navy-light);
-      font-size: 20px;
-    }
-    .config-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
-    .config-sub { font-size: 13px; color: var(--gray-500); }
-    .btn-sm-navy {
-      background: var(--navy);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 7px 18px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .btn-sm-navy:hover { background: #001f47; }
-
-    /* =========================================================
-       SPLIT PROMO  (PM change: new sections)
-    ========================================================= */
-    .split-section { overflow: hidden; }
-    .split-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 440px;
-    }
-    .split-img-col {
-      position: relative;
-      overflow: hidden;
-      min-height: 440px;
-    }
-    .split-img-col .bg-fill {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-    }
-    .split-text-col {
-      padding: 60px 72px;
-      display: flex;
-      align-items: center;
-    }
-    .split-text-col.navy { background: var(--navy); }
-    .split-text-col.light { background: var(--hero-bg-to); }
-    .split-inner { max-width: 480px; }
-    .split-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .navy .split-eyebrow { color: rgba(255,255,255,0.5); }
-    .light .split-eyebrow { color: var(--navy-light); }
-    .split-title {
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .navy .split-title { color: #fff; }
-    .light .split-title { color: var(--navy); }
-    .split-body {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-    .navy .split-body { color: rgba(255,255,255,0.7); }
-    .light .split-body { color: var(--gray-700); }
-    .split-list {
-      list-style: none;
-      margin-bottom: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .split-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-    .navy .split-list li { color: rgba(255,255,255,0.85); }
-    .light .split-list li { color: var(--gray-700); }
-    .check-circle {
-      width: 20px; height: 20px;
+    .grit-dot {
+      width: 12px; height: 12px;
+      background: var(--blue);
       border-radius: 50%;
-      background: var(--yellow);
-      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      font-size: 11px;
-      color: var(--navy);
-      font-weight: 800;
     }
-    .navy .check-circle { background: rgba(255,255,255,0.2); color: #fff; }
-    .btn-yellow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 13px 28px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.15s;
+    .prod-secondary-img {
+      width: 100%;
+      height: 60px;
+      background: #f0f0f0;
+      overflow: hidden;
     }
-    .btn-yellow:hover { background: #e6b400; transform: translateY(-1px); }
-    .btn-light {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      color: var(--navy);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 13px 28px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .btn-light:hover { background: var(--gray-50); transform: translateY(-1px); }
+    .prod-secondary-img img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* =========================================================
-       SHOP BY INDUSTRY  (made more image-focused per PM)
-    ========================================================= */
+    /* ============================================================
+       INDUSTRY SECTION
+    ============================================================ */
+    .industry-section {
+      padding: 80px 0;
+      background: var(--industry-bg);
+    }
     .industry-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
     .industry-card {
       border-radius: 12px;
       overflow: hidden;
-      position: relative;
-      height: 300px;
-      cursor: pointer;
-    }
-    .industry-bg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-      display: block;
-    }
-    .industry-card:hover .industry-bg { transform: scale(1.05); }
-    .industry-bg-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 72px;
-    }
-    .industry-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,40,90,0.88) 0%, rgba(0,40,90,0.1) 60%);
+      background: #fff;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
     }
-    .industry-icon-box {
-      width: 48px; height: 48px;
-      background: rgba(255,199,0,0.2);
-      border: 1px solid rgba(255,199,0,0.5);
-      border-radius: 10px;
+    .industry-top {
+      padding: 24px;
+      background: #fff;
+      flex-shrink: 0;
+      height: 205px;
+    }
+    .industry-icon-circle {
+      width: 56px; height: 56px;
+      background: #f4f8ff;
+      border-radius: 100px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 10px;
-      font-size: 22px;
+      margin-bottom: 16px;
+      flex-shrink: 0;
     }
+    .industry-icon-circle img { width: 28px; height: 28px; object-fit: contain; }
     .industry-name {
-      font-size: 20px;
+      font-family: 'Geist', 'Inter', sans-serif;
+      font-size: 24px;
       font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
+      color: var(--text);
+      margin-bottom: 6px;
     }
-    .industry-desc { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 10px; line-height: 1.4; }
-    .industry-link {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--yellow);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: gap 0.15s;
+    .industry-desc {
+      font-family: 'Geist', 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #535862;
+      line-height: 1.5;
     }
-    .industry-card:hover .industry-link { gap: 8px; }
-
-    /* =========================================================
-       UGC VIDEOS  (PM change: new section)
-    ========================================================= */
-    .ugc-section {
-      background: var(--navy);
-      padding: 80px 0;
-    }
-    .ugc-section .section-title { color: #fff; }
-    .ugc-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .ugc-card {
-      border-radius: 14px;
+    .industry-photo {
+      flex: 1;
+      min-height: 140px;
       overflow: hidden;
-      aspect-ratio: 9/16;
-      position: relative;
-      cursor: pointer;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
     }
-    .ugc-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .ugc-play-btn {
-      width: 52px; height: 52px;
-      background: rgba(255,199,0,0.9);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-      color: var(--navy);
-      transition: transform 0.15s, background 0.15s;
-    }
-    .ugc-card:hover .ugc-play-btn { transform: scale(1.1); background: var(--yellow); }
-    .ugc-placeholder-txt {
-      font-size: 11px;
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 0 16px;
-    }
-    .ugc-meta {
-      position: absolute;
-      bottom: 0;
-      left: 0; right: 0;
-      padding: 14px;
-      background: linear-gradient(to top, rgba(0,40,90,0.85), transparent);
-    }
-    .ugc-handle {
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 3px;
-    }
-    .ugc-caption { font-size: 11px; color: rgba(255,255,255,0.65); line-height: 1.4; }
+    .industry-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
 
-    /* =========================================================
-       CUSTOMER REVIEWS  (exact Figma match)
-    ========================================================= */
-    .reviews-section { padding: 80px 0 40px; }
+    /* ============================================================
+       REVIEWS
+    ============================================================ */
+    .reviews-section {
+      padding: 80px 80px 40px;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+    }
     .reviews-title {
       font-size: 32px;
       font-weight: 700;
-      color: var(--gray-900);
+      color: #000;
       text-align: center;
       margin-bottom: 40px;
     }
@@ -861,1094 +677,1732 @@
       display: flex;
       gap: 24px;
       align-items: stretch;
-      overflow: hidden;
     }
-    .reviews-summary-box {
-      background: #033074;
+    .reviews-summary {
+      flex: 0 0 380px;
+      background: var(--navy-mid);
       border-radius: 20px;
       padding: 56px 40px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 32px;
-      flex-shrink: 0;
-      width: 340px;
     }
-    .reviews-stars-big {
+    .reviews-big-stars {
       display: flex;
-      gap: 6px;
-      margin-bottom: 4px;
+      gap: 8px;
+      margin-bottom: 20px;
     }
-    .big-star { font-size: 34px; color: var(--yellow); }
-    .reviews-count-text {
+    .reviews-big-stars img { width: 37px; height: 37px; }
+    .reviews-count {
       font-family: 'Roboto', sans-serif;
-      font-size: 36px;
+      font-size: 40px;
       font-weight: 700;
       color: #fff;
-      text-align: center;
-      line-height: 1.1;
+      line-height: 1.15;
+      margin-bottom: 32px;
     }
     .btn-shop-now {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--white);
       color: var(--navy);
       font-size: 16px;
       font-weight: 500;
-      padding: 12px 16px;
+      padding: 12px 24px;
       border-radius: 4px;
-      border: none;
       cursor: pointer;
-      letter-spacing: -0.15px;
-      transition: all 0.15s;
-      width: 100%;
-      text-align: center;
+      transition: background 0.15s;
+      width: fit-content;
     }
-    .btn-shop-now:hover { background: var(--gray-200); }
+    .btn-shop-now:hover { background: #f0f0f0; }
     .review-card {
-      border: 1px solid var(--gray-200);
+      flex: 1;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px 28px;
+      padding: 32px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      flex: 1;
+      gap: 16px;
     }
-    .review-card-header {
+    .review-card-top {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
     }
+    .review-stars { display: flex; gap: 3px; }
+    .review-stars img { width: 18px; height: 18px; }
     .review-date {
       font-family: 'Poppins', sans-serif;
       font-size: 14px;
-      color: var(--gray-500);
+      color: var(--gray-400);
     }
     .review-text {
       font-size: 16px;
       font-weight: 400;
-      color: var(--body-text);
-      line-height: 1.35;
+      color: var(--text-body);
+      line-height: 1.5;
       flex: 1;
-      margin-bottom: 20px;
-      display: -webkit-box;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
-    .review-author-row { display: flex; align-items: center; gap: 8px; }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .reviewer-name {
       font-size: 14px;
       font-weight: 500;
-      color: var(--black);
+      color: #000613;
     }
     .verified-badge {
       display: flex;
       align-items: center;
       gap: 4px;
-      background: var(--blue-badge);
+      background: var(--blue);
       color: #fff;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
       padding: 4px 6px;
       border-radius: 4px;
     }
+    .verified-badge img { width: 14px; height: 14px; }
     .reviews-nav {
       display: flex;
-      gap: 16px;
       justify-content: center;
+      gap: 16px;
       margin-top: 24px;
     }
     .review-nav-btn {
-      width: 36px; height: 36px;
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
-      border-radius: 100px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      font-size: 14px;
-      color: var(--gray-700);
-      transition: all 0.15s;
-    }
-    .review-nav-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
-
-    /* =========================================================
-       SISTER BRAND - STAINO  (PM change: new section)
-    ========================================================= */
-    .sister-section {
-      background: linear-gradient(135deg, #EFF3FB 0%, #E8EAF4 100%);
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 80px 0;
-    }
-    .sister-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .sister-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--navy-light);
-      margin-bottom: 10px;
-    }
-    .sister-title {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .sister-desc {
-      font-size: 16px;
-      color: var(--gray-700);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .sister-list {
-      list-style: none;
-      margin-bottom: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .sister-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray-700);
-    }
-    .sister-check {
-      width: 20px; height: 20px;
-      background: var(--yellow);
+      width: 40px; height: 40px;
+      background: #fff;
+      border: 1px solid #d5d7da;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--navy);
-      flex-shrink: 0;
-    }
-    .sister-card {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 16px 48px rgba(0,40,90,0.14);
-      overflow: hidden;
-      position: relative;
-    }
-    .sister-badge-pill {
-      position: absolute;
-      top: -14px;
-      right: 28px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 100px;
-    }
-    .sister-card-header {
-      background: linear-gradient(135deg, var(--navy), #1a3d80);
-      padding: 28px 28px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .sister-logo-box {
-      width: 56px; height: 56px;
-      background: #fff;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 10px;
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-    }
-    .sister-card-title { font-size: 20px; font-weight: 800; color: #fff; }
-    .sister-card-sub { font-size: 13px; color: rgba(255,255,255,0.65); }
-    .sister-card-body { padding: 24px 28px; }
-    .sister-card-body p { font-size: 14px; color: var(--gray-500); line-height: 1.6; margin-bottom: 18px; }
-    .btn-navy-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--navy);
-      border: 2px solid var(--navy);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 4px;
       cursor: pointer;
       transition: all 0.15s;
+      padding: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    .btn-navy-outline:hover { background: var(--navy); color: #fff; }
+    .review-nav-btn svg { width: 18px; height: 18px; stroke: #414651; stroke-width: 2; fill: none; flex-shrink: 0; transition: stroke 0.15s; }
+    .review-nav-btn:hover { background: var(--navy); border-color: var(--navy); }
+    .review-nav-btn:hover svg { stroke: #fff; }
 
-    /* =========================================================
-       CONTACT SALES  (exact Figma match)
-    ========================================================= */
-    .contact-section { background: var(--gray-50); padding: 80px 0; }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 48px;
-      align-items: center;
-      background: #fff;
-      border-radius: 16px;
-      border: 1px solid var(--gray-200);
-      overflow: hidden;
-    }
-    .contact-img-col {
-      height: 100%;
-      min-height: 340px;
-      overflow: hidden;
-    }
-    .contact-img-col img { width: 100%; height: 100%; object-fit: cover; }
-    .contact-img-placeholder {
+    /* ============================================================
+       CONTACT SECTION
+    ============================================================ */
+    .contact-wrap {
+      padding: 80px 80px;
+      max-width: 1440px;
       width: 100%;
-      height: 100%;
-      min-height: 340px;
-      background: linear-gradient(135deg, #dce8f8, #c8d8f0);
+      margin: 0 auto;
+    }
+    .contact-card {
+      position: relative;
+      background: var(--contact-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 373px;
+    }
+    .contact-photo {
+      position: absolute;
+      top: 0;
+      object-fit: cover;
+    }
+    .contact-photo-1 {
+      left: -27.5px;
+      width: 249px;
+      height: 373px;
+    }
+    .contact-photo-2 {
+      left: 0.5px;
+      top: 0;
+      width: 464px;
+      height: 309px;
+    }
+    .contact-body {
+      margin-left: 338px;
+      padding: 56px 56px 56px 0;
+      display: flex;
+      gap: 47px;
+      min-height: 373px;
+    }
+    .contact-left { flex: 1; }
+    .contact-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+    .contact-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .contact-desc {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-sub);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .contact-phone {
+      display: inline-flex;
+      align-items: center;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      transition: background 0.15s;
+    }
+    .contact-phone:hover { background: #001f47; }
+    .contact-email {
+      display: block;
+      font-size: 16px;
+      color: var(--navy-light);
+      text-decoration: underline;
+    }
+    .contact-right {
+      width: 446px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-icon-box {
+      width: 48px; height: 48px;
+      background: #f4f8ff;
+      border-radius: 5.143px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon-box img { width: 24px; height: 24px; object-fit: contain; }
+    .contact-info-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-400);
+      margin-bottom: 2px;
+    }
+    .contact-info-val {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .contact-info-val a { color: var(--navy-light); text-decoration: underline; }
+
+    /* ============================================================
+       BOTTOM TRUST BAR
+    ============================================================ */
+    .trust-bar {
+      height: 46px;
+      background: linear-gradient(168.79deg, #F5F8FF 6.47%, #CADBFF 100.93%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 64px;
     }
-    .contact-text { padding: 40px 40px 40px 0; }
-    .contact-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--navy-light);
-      margin-bottom: 8px;
-    }
-    .contact-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .contact-sub { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; line-height: 1.55; }
-    .contact-btns { display: flex; gap: 10px; margin-bottom: 28px; }
-    .contact-items { display: flex; flex-direction: column; gap: 16px; }
-    .contact-item { display: flex; align-items: flex-start; gap: 14px; }
-    .contact-icon-box {
-      width: 44px; height: 44px;
-      background: #fff;
-      border: 1px solid var(--gray-200);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    .contact-label { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-    .contact-val { font-size: 13px; color: var(--gray-500); line-height: 1.4; }
-
-    /* =========================================================
-       TRUST BAR
-    ========================================================= */
-    .trust-bar {
-      background: var(--navy);
-      padding: 18px 0;
-    }
-    .trust-inner {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 80px;
+    .trust-bar-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
     }
     .trust-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
+      color: var(--navy);
+      font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.8);
+      white-space: nowrap;
+      padding: 0 20px;
     }
-    .trust-dot { width: 10px; height: 10px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
-    .trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.15); }
+    .trust-item img { width: 16px; height: 16px; object-fit: contain; filter: brightness(0) saturate(100%) invert(11%) sepia(60%) saturate(900%) hue-rotate(197deg) brightness(80%); }
+    .trust-sep {
+      width: 1px; height: 20px;
+      background: rgba(0,40,90,0.2);
+      flex-shrink: 0;
+    }
 
-    /* =========================================================
+    /* ============================================================
        CTA SECTION
-    ========================================================= */
+    ============================================================ */
     .cta-section {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a4080 100%);
-      padding: 80px 0;
+      background: var(--navy);
+      padding: 64px 80px;
+    }
+    .cta-inner {
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
-    .cta-inner { max-width: 600px; margin: 0 auto; padding: 0 40px; }
-    .cta-title { font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 16px; line-height: 1.2; }
-    .cta-sub { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.5; }
-    .cta-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
-    .cta-fine { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .cta-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: #f5f5f5;
+      max-width: 462px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .btn-catalog {
+      background: var(--white);
+      color: var(--navy);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .btn-catalog:hover { background: #f0f0f0; }
+    .btn-contact-sales {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      transition: border-color 0.15s;
+    }
+    .btn-contact-sales:hover { border-color: #fff; }
+    .btn-contact-sales img { width: 20px; height: 20px; object-fit: contain; }
+    .cta-trust-items {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .cta-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+    .cta-trust-item img { width: 20px; height: 20px; object-fit: contain; }
 
-    /* =========================================================
+    /* ============================================================
        FOOTER
-    ========================================================= */
+    ============================================================ */
     .footer {
-      background: #091B3D;
-      padding: 64px 0 0;
+      background: var(--footer-bg);
+      padding: 80px 64px;
     }
     .footer-inner {
       max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 80px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 260px repeat(4, 1fr);
-      gap: 40px;
-      padding-bottom: 48px;
-    }
-    .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-    .footer-logo span { color: var(--yellow); }
-    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 18px; }
-    .footer-social { display: flex; gap: 8px; }
-    .social-btn {
-      width: 34px; height: 34px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      transition: all 0.15s;
-    }
-    .social-btn:hover { background: var(--yellow); color: var(--navy); }
-    .footer-col-title {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 14px;
-    }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); transition: color 0.15s; }
-    .footer-links a:hover { color: var(--yellow); }
-    .footer-newsletter input {
       width: 100%;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
-      padding: 9px 12px;
-      border-radius: 4px;
-      font-size: 13px;
-      margin-bottom: 7px;
-      outline: none;
-      font-family: inherit;
+      margin: 0 auto;
+      padding: 0 16px;
     }
-    .footer-newsletter input::placeholder { color: rgba(255,255,255,0.3); }
-    .footer-newsletter input:focus { border-color: var(--yellow); }
-    .footer-newsletter .btn-sm-navy { width: 100%; text-align: center; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 0;
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 400px;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-logo-text {
+      font-family: 'Geist', 'Inter', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.56px;
+      margin-bottom: 24px;
+    }
+    .footer-social {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
     }
-    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.35); }
-    .footer-bottom a { color: rgba(255,255,255,0.35); transition: color 0.15s; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.65); }
-    .pay-badges { display: flex; gap: 6px; }
-    .pay-badge {
-      background: rgba(255,255,255,0.07);
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 10px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.45);
-      letter-spacing: 0.5px;
+    .footer-social a {
+      display: flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px;
     }
+    .footer-social img { width: 24px; height: 24px; object-fit: contain; }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(253,253,253,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(253,253,253,0.7);
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-newsletter-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-newsletter-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .footer-email-input {
+      width: 280px;
+      height: 44px;
+      background: #181d27;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0 14px;
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+    }
+    .footer-email-input::placeholder { color: rgba(255,255,255,0.35); }
+    .btn-subscribe {
+      height: 44px;
+      padding: 0 20px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 4px;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .btn-subscribe:hover { background: #f0f0f0; }
+    .footer-privacy {
+      font-size: 12px;
+      color: rgba(253,253,253,0.4);
+      line-height: 1.5;
+    }
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      margin-bottom: 32px;
+    }
+    .footer-divider img { width: 100%; height: 100%; }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copyright {
+      font-size: 14px;
+      color: rgba(253,253,253,0.5);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a {
+      font-size: 14px;
+      color: rgba(253,253,253,0.5);
+      transition: color 0.15s;
+    }
+    .footer-bottom-links a:hover { color: var(--white); }
+    .footer-payments {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .pay-badge {
+      width: 43.5px; height: 30px;
+      background: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .pay-badge img { max-width: 40px; max-height: 26px; object-fit: contain; }
+    .pay-badge.amex { background: #1f72cd; }
+
+    /* ============================================================
+       STATS BAR  (by the numbers strip)
+    ============================================================ */
+    .stats-bar {
+      background: var(--yellow);
+      padding: 56px 0;
+    }
+    .stats-bar-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Geist', 'Inter', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 72px;
+      background: rgba(0,40,90,0.18);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SPLIT PROMO  (PM change: new half/half section)
+    ============================================================ */
+    .split-section { width: 100%; }
+    .split-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 460px;
+    }
+    .split-img {
+      background: linear-gradient(135deg, #1a3a6e, #2d6ea0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px;
+      overflow: hidden;
+    }
+    .split-img img { width: 100%; height: 100%; object-fit: cover; }
+    .split-content {
+      padding: 72px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .split-content.navy { background: var(--navy); }
+    .split-content.light { background: #f7f9ff; }
+    .split-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy-light);
+      margin-bottom: 10px;
+    }
+    .split-content.navy .split-eyebrow { color: rgba(255,255,255,0.55); }
+    .split-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .split-content.navy .split-title { color: #fff; }
+    .split-desc {
+      font-size: 16px;
+      color: var(--gray-700);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .split-content.navy .split-desc { color: rgba(255,255,255,0.7); }
+    .split-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .split-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500; color: var(--gray-700);
+    }
+    .split-content.navy .split-list li { color: rgba(255,255,255,0.75); }
+    .split-check {
+      width: 20px; height: 20px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: var(--navy);
+      flex-shrink: 0;
+    }
+    .btn-yellow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--yellow); color: var(--navy);
+      font-size: 15px; font-weight: 700;
+      padding: 12px 28px; border-radius: 4px;
+      cursor: pointer; border: none;
+      transition: background 0.15s;
+      width: fit-content;
+    }
+    .btn-yellow:hover { background: #e6b400; }
+    .btn-navy-outline-light {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--navy);
+      border: 2px solid var(--navy);
+      font-size: 15px; font-weight: 600;
+      padding: 11px 26px; border-radius: 4px;
+      cursor: pointer; transition: all 0.15s;
+      width: fit-content;
+    }
+    .btn-navy-outline-light:hover { background: var(--navy); color: #fff; }
+
+    /* ============================================================
+       UGC SECTION  (PM change: video cards)
+    ============================================================ */
+    .ugc-section {
+      background: linear-gradient(145deg, #050d1a 0%, #0a1e3c 50%, #061020 100%);
+      padding: 80px 0;
+    }
+    .ugc-section .section-title { color: #fff; }
+    .ugc-section .section-eyebrow { color: var(--yellow); }
+    .ugc-section .view-all { color: rgba(255,255,255,0.55); }
+    .ugc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .ugc-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a2a40;
+      cursor: pointer;
+    }
+    .ugc-thumb {
+      height: 260px;
+      background: linear-gradient(135deg, #1a2a40, #243752);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .ugc-play {
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: #fff;
+      padding-left: 4px;
+    }
+    .ugc-meta { padding: 16px; }
+    .ugc-handle {
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 4px;
+    }
+    .ugc-caption {
+      font-size: 14px; color: rgba(255,255,255,0.8);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       STAINO SISTER BRAND  (PM change: new section)
+    ============================================================ */
+    .staino-section {
+      background: linear-gradient(135deg, #eff3fb 0%, #e8eaf4 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 0;
+    }
+    .staino-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .staino-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--navy-light); margin-bottom: 10px;
+    }
+    .staino-title {
+      font-size: 36px; font-weight: 700;
+      color: var(--navy); line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .staino-desc {
+      font-size: 16px; color: var(--gray-700);
+      line-height: 1.6; margin-bottom: 24px;
+    }
+    .staino-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .staino-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500; color: var(--gray-700);
+    }
+    .staino-check {
+      width: 20px; height: 20px;
+      background: var(--yellow); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: var(--navy);
+      flex-shrink: 0;
+    }
+    .staino-card {
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(0,40,90,0.14);
+      overflow: hidden; position: relative;
+    }
+    .staino-badge {
+      position: absolute; top: -14px; right: 28px;
+      background: var(--yellow); color: var(--navy);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px;
+    }
+    .staino-card-head {
+      background: linear-gradient(135deg, var(--navy), #1a3d80);
+      padding: 28px; display: flex; align-items: center; gap: 16px;
+    }
+    .staino-logo-box {
+      width: 56px; height: 56px; background: #fff;
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 900; color: var(--navy);
+      letter-spacing: 0.5px; flex-shrink: 0;
+    }
+    .staino-card-title { font-size: 20px; font-weight: 800; color: #fff; }
+    .staino-card-sub { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .staino-card-body { padding: 24px 28px; }
+    .staino-card-body p { font-size: 14px; color: var(--gray-400); line-height: 1.6; margin-bottom: 16px; }
+    .btn-navy-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--navy);
+      border: 2px solid var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 10px 22px; border-radius: 4px;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .btn-navy-outline:hover { background: var(--navy); color: #fff; }
   </style>
 </head>
 <body>
 
-<!-- ===== UTILITY BAR ===== -->
+<!-- ============================================================
+     UTILITY BAR
+============================================================ -->
 <div class="util-bar">
-  <div class="util-bar-items">
-    <div class="util-item"><div class="util-dot"></div> Trusted Since 1939</div>
+  <div class="util-bar-inner">
+    <div class="util-item">
+      <span class="util-dot"></span>
+      <img class="util-icon" src="assets/img/b67dbe66-1ad8-4741-aebf-fa13cf10893a.svg" alt="">
+      Trusted Since 1939
+    </div>
     <div class="util-sep"></div>
-    <div class="util-item">Developed in USA</div>
+    <div class="util-item">
+      <img class="util-icon" src="assets/img/654049ed-e38e-449c-8002-19accc9c1e62.svg" alt="">
+      Developed in USA
+    </div>
     <div class="util-sep"></div>
-    <div class="util-item">ISO 9001:2015</div>
+    <div class="util-item">
+      <img class="util-icon" src="assets/img/8394b009-9a39-4f94-b2f4-a0382c959f05.svg" alt="">
+      ISO 9001:2015
+    </div>
     <div class="util-sep"></div>
-    <div class="util-item">Same-Day Shipping Available</div>
+    <div class="util-item">
+      <img class="util-icon" src="assets/img/0428a397-7a75-42f8-8c57-2ba888ab7f0a.svg" alt="">
+      Same-Day Shipping Available
+    </div>
     <div class="util-sep"></div>
-    <div class="util-item">Expert Technical Support</div>
+    <div class="util-item">
+      <img class="util-icon" src="assets/img/cf4a3609-4c37-47be-b0be-84f61099cbdc.svg" alt="">
+      Expert Technical Support
+    </div>
     <div class="util-sep"></div>
-    <div class="util-item">100% Quality Guaranteed</div>
+    <div class="util-item">
+      <img class="util-icon" src="assets/img/1b6ee9e9-3938-4169-bb93-55d3f2f824e1.svg" alt="">
+      100% Quality Guaranteed
+    </div>
   </div>
 </div>
 
-<!-- ===== HEADER ===== -->
+<!-- ============================================================
+     HEADER
+============================================================ -->
 <header class="header">
   <div class="header-inner">
-    <div class="header-left">
-      <!-- Dedeco logo - using Figma asset -->
-      <a href="#"><img class="logo-img" src="https://www.figma.com/api/mcp/asset/7e3d546a-c761-4e29-a793-b6bef06c7cc5" alt="Dedeco International Inc." /></a>
-      <nav class="nav">
-        <a href="#" class="nav-btn">Products <span class="nav-chevron">&#8964;</span></a>
-        <a href="#" class="nav-btn">Industries <span class="nav-chevron">&#8964;</span></a>
-        <a href="#" class="nav-btn">Learn <span class="nav-chevron">&#8964;</span></a>
-        <a href="#" class="nav-btn highlight">Sunburst&#174;</a>
-        <a href="#" class="nav-btn">Compare Brands</a>
-        <a href="#" class="nav-btn">Support</a>
-        <a href="#" class="nav-btn highlight">SALE</a>
-        <a href="#" class="nav-btn">NEW!</a>
-      </nav>
-    </div>
+    <a href="#" class="logo">
+      <img src="assets/img/5ecfe105-4f20-44c1-ac12-b3729535d3b0.png" alt="Dedeco International Inc.">
+    </a>
+    <nav class="nav">
+      <a href="#" class="nav-link">
+        Products
+        <svg class="nav-chevron-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <a href="#" class="nav-link">
+        Industries
+        <svg class="nav-chevron-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <a href="#" class="nav-link">
+        Learn
+        <svg class="nav-chevron-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <a href="#" class="nav-link red">Sunburst&#174;</a>
+      <a href="#" class="nav-link">Compare Brands</a>
+      <a href="#" class="nav-link">Support</a>
+      <a href="#" class="nav-link red">SALE</a>
+      <a href="#" class="nav-link dark" style="color:#414651;">NEW!</a>
+    </nav>
     <div class="header-actions">
-      <a href="#" class="icon-btn" aria-label="Search">&#128269;</a>
-      <a href="#" class="icon-btn" aria-label="Account">&#128100;</a>
+      <a href="#" class="icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="6.5" stroke="#414651" stroke-width="1.5"/>
+          <path d="M14 14L18 18" stroke="#414651" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a href="#" class="icon-btn" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="7" r="3.5" stroke="#414651" stroke-width="1.5"/>
+          <path d="M3 17c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="#414651" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
       <a href="#" class="icon-btn" aria-label="Cart">
-        &#128722;
+        <img src="assets/img/3fff479c-99e9-4dc2-84ee-eecf40e8d577.svg" alt="Cart">
         <span class="cart-badge">2</span>
       </a>
     </div>
   </div>
 </header>
 
-<!-- ===== VIDEO HERO  (PM change: video replaces static hero) ===== -->
+<!-- ============================================================
+     HERO
+============================================================ -->
 <section class="hero">
-  <!-- Static hero image as poster/fallback (exact Figma hero background) -->
-  <div class="hero-bg-fallback">
-    <img class="hero-bg-img" src="https://www.figma.com/api/mcp/asset/7a092bb5-a894-40a7-bed1-cbcf266c8196" alt="" />
-  </div>
-  <!-- Video tag - replace src with actual footage when available -->
-  <video class="hero-video" autoplay muted loop playsinline poster="https://www.figma.com/api/mcp/asset/7a092bb5-a894-40a7-bed1-cbcf266c8196">
-    <!-- <source src="assets/hero-swim.mp4" type="video/mp4"> -->
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/img/cf7507fe-88ee-444a-954e-b1450b05d77c.png">
+    <!-- Full swim video goes here: <source src="video/hero.mp4" type="video/mp4"> -->
   </video>
+  <img class="hero-bg" src="assets/img/cf7507fe-88ee-444a-954e-b1450b05d77c.png" alt="">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text">
       <div class="hero-stars">
         <div class="stars-row">
-          <span class="star-icon">&#9733;</span>
-          <span class="star-icon">&#9733;</span>
-          <span class="star-icon">&#9733;</span>
-          <span class="star-icon">&#9733;</span>
-          <span class="star-icon">&#9733;</span>
+          <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="star">
+          <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="star">
+          <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="star">
+          <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="star">
+          <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="star">
         </div>
-        <span class="hero-stars-count">(242)</span>
+        <span class="hero-stars-ct">(242)</span>
       </div>
       <h1 class="hero-h1">Precision Abrasives<br>&amp; Burs Since 1939</h1>
       <p class="hero-sub">Industry-leading quality for manufacturing, dental, jewelry, and professional applications.</p>
       <div class="hero-cta-row">
-        <button class="btn-navy" style="background:var(--navy);font-size:16px;padding:12px 28px;">Find the right tool</button>
-        <button class="btn-white-outline">&#9654; Watch how it works</button>
+        <a href="#" class="hero-btn">Find the right tool</a>
+        <a href="#" class="hero-btn-outline">&#9654; Watch how it works</a>
       </div>
       <div class="hero-trust">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <img src="assets/img/12d69862-36ec-49f7-a0f3-e2b931851cf7.svg" alt="">
         Industry leading brand trusted by over 100,000 companies
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== BRAND LOGOS BAR ===== -->
-<div class="logos-bar">
-  <div class="logos-track">
-    <div class="logos-set">
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/c2b113ef-d3f2-42eb-aad7-c3b73f5cf212" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/3df605c1-1bf5-43f1-85e9-eb45d0e484cd" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/7e29618d-0da4-4e6a-9e52-69d1eaabd185" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/b27787ad-5e92-4feb-9d88-84376bcbb1c9" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/8566b217-9776-4e9d-98d7-35267901b130" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/ed1e875c-c3c9-437a-86e5-394e5e371e70" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/b30062f8-a512-493b-a57f-b03bd329253b" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/ee1aecbc-3373-4139-82ec-b01b509e5779" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/7b7e3731-a689-4520-852c-b671b135cdd9" alt="Brand logo" /></div>
+<!-- ============================================================
+     BRAND LOGOS
+============================================================ -->
+<div class="logos-section">
+  <div class="logos-inner">
+    <div class="logo-card"><img src="assets/img/d93611c1-0cc1-4674-a69c-65dca51369ff.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/06e038ab-6fc7-40e4-a455-a6dc9c890de1.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/2823b325-e5a4-45e2-b0de-284aef86b28c.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/9a2f906c-1677-4a34-9399-a39423e9bc30.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/20d67c43-feaf-41f5-bdca-991f10bb9d57.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/d1f20040-f09e-4677-a357-210c11b8eb4e.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/5d0b74f4-4555-4c07-a4da-d4e6f10cecaf.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/cfa602bf-4462-40ba-9cc7-9c61647c49a9.png" alt="Brand logo"></div>
+    <div class="logo-card"><img src="assets/img/ed4c0e06-3ee9-4a71-beeb-0260f035dfb2.png" alt="Brand logo"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SHOP BY PRODUCT CATEGORY
+============================================================ -->
+<section class="section bg-navy">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Browse our range</div>
+        <h2 class="section-title">Shop by product category</h2>
+      </div>
     </div>
-    <!-- duplicate for seamless loop -->
-    <div class="logos-set">
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/c2b113ef-d3f2-42eb-aad7-c3b73f5cf212" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/3df605c1-1bf5-43f1-85e9-eb45d0e484cd" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/7e29618d-0da4-4e6a-9e52-69d1eaabd185" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/b27787ad-5e92-4feb-9d88-84376bcbb1c9" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/8566b217-9776-4e9d-98d7-35267901b130" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/ed1e875c-c3c9-437a-86e5-394e5e371e70" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/b30062f8-a512-493b-a57f-b03bd329253b" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/ee1aecbc-3373-4139-82ec-b01b509e5779" alt="Brand logo" /></div>
-      <div class="logo-card"><img src="https://www.figma.com/api/mcp/asset/7b7e3731-a689-4520-852c-b671b135cdd9" alt="Brand logo" /></div>
+    <div class="cat-scroll-wrap">
+      <button class="cat-nav-btn cat-prev" onclick="scrollCat(-1)" aria-label="Previous">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="cat-scroll" id="catScroll">
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/c28bef18-478d-4c4c-981e-fc9e4ac7ffa6.png" alt="Radial Bristle"></div>
+          <span class="cat-name">Radial Bristle</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/bffa4c04-54e9-4584-9e61-6ecb94643a52.png" alt="Polishing Pins"></div>
+          <span class="cat-name">Polishing Pins</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/eafa8910-c058-437f-b725-360cacd0737d.png" alt="Bristle discs"></div>
+          <span class="cat-name">Bristle discs</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/93b4962c-87d1-4bad-9a32-125f8e742683.png" alt="E-Z Loc Brushes"></div>
+          <span class="cat-name">E-Z Loc Brushes</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/b551a9f1-e7f4-4cae-8876-11e8bdd326f3.png" alt="Sunburst Wheels"></div>
+          <span class="cat-name">Sunburst Wheels</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/ee6209ce-7370-43c1-96f4-1f7c4a3200d5.png" alt="Polishing Points"></div>
+          <span class="cat-name">Polishing Points</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/45782bba-a6ff-4332-a3f5-be5c3a7dcded.png" alt="SR Cutters"></div>
+          <span class="cat-name">SR Cutters</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-img"><img src="assets/img/6b7feaed-8275-4f0f-9dc4-a754b41c933f.png" alt="Sunburst Snap-On Polishing Discs"></div>
+          <span class="cat-name">Sunburst Snap-On Polishing Discs</span>
+        </div>
+      </div>
+      <button class="cat-nav-btn cat-next" onclick="scrollCat(1)" aria-label="Next">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPLIT PROMO  (PM change: half/half image + text)
+============================================================ -->
+<section class="split-section">
+  <div class="split-row">
+    <!-- Left: image -->
+    <div class="split-img">
+      <img src="assets/img/59537c67-dd14-4bf3-9fc9-677d689ccde4.png" alt="Precision at work">
+    </div>
+    <!-- Right: content on navy -->
+    <div class="split-content navy">
+      <div class="split-eyebrow">WHY DEDECO</div>
+      <h2 class="split-title">Engineered for professionals who demand the best</h2>
+      <p class="split-desc">For over 85 years, Dedeco has set the standard for precision abrasives. Our tools are trusted by aerospace engineers, dental labs, jewelers, and manufacturers worldwide.</p>
+      <ul class="split-list">
+        <li><span class="split-check">&#10003;</span> ISO 9001:2015 certified manufacturing</li>
+        <li><span class="split-check">&#10003;</span> Developed and made in the USA since 1939</li>
+        <li><span class="split-check">&#10003;</span> Same-day shipping on most orders</li>
+        <li><span class="split-check">&#10003;</span> Expert technical support included</li>
+      </ul>
+      <a href="#" class="btn-yellow">Shop all products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+============================================================ -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">85+</div>
+      <div class="stat-label">Years of Innovation</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">100K+</div>
+      <div class="stat-label">Companies Served</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">ISO</div>
+      <div class="stat-label">9001:2015 Certified</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">Made</div>
+      <div class="stat-label">In the USA Since 1939</div>
     </div>
   </div>
 </div>
 
-<!-- ===== SHOP BY PRODUCT CATEGORY ===== -->
-<section class="section-wrap">
+<!-- ============================================================
+     ASSORTMENTS BEST SELLERS
+============================================================ -->
+<section class="section bg-cream">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 class="section-title">Shop by product category</h2>
+    <div class="section-head">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Top kits</div>
+        <h2 class="section-title">Assortments best sellers</h2>
+      </div>
+      <a href="#" class="view-all">View all products</a>
     </div>
-    <div class="categories-scroll" id="catScroll">
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#128308;</div></div><div class="cat-name">Radial Bristle</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#128297;</div></div><div class="cat-name">E-Z Loc Brushes</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#11096;</div></div><div class="cat-name">Bristle Discs</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#127774;</div></div><div class="cat-name">Sunburst Wheels</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#9940;</div></div><div class="cat-name">Polishing Pins</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#9679;</div></div><div class="cat-name">Polishing Points</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#9994;</div></div><div class="cat-name">SR Cutters</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#128161;</div></div><div class="cat-name">Snap-On Polishing Discs</div></div>
-      <div class="cat-card"><div class="cat-img-wrap"><div style="font-size:36px;">&#9881;</div></div><div class="cat-name">Cut-Off Wheels</div></div>
+    <div class="tabs">
+      <button class="tab-pill active" onclick="switchTab('ab',0,this)">SUNBURST Assortments</button>
+      <button class="tab-pill inactive" onclick="switchTab('ab',1,this)">Woodworkers Assortment</button>
+      <button class="tab-pill inactive" onclick="switchTab('ab',2,this)">Deluxe Accessory Assortment</button>
+      <button class="tab-pill inactive" onclick="switchTab('ab',3,this)">Deluxe Cut-Off Assortment</button>
+      <button class="tab-pill inactive" onclick="switchTab('ab',4,this)">General Purpose Assortment</button>
     </div>
-    <div class="cat-nav-row">
-      <button class="nav-circle" onclick="document.getElementById('catScroll').scrollBy({left:-215,behavior:'smooth'})">&#8592;</button>
-      <button class="nav-circle" onclick="document.getElementById('catScroll').scrollBy({left:215,behavior:'smooth'})">&#8594;</button>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ASSORTMENTS BEST SELLERS ===== -->
-<section class="section-wrap bg-light" style="padding-bottom:0;">
-  <div class="section-inner">
-    <div class="section-header">
-      <h2 class="section-title">Assortments best sellers</h2>
-      <a href="#" class="view-all">View all products &#8594;</a>
-    </div>
-    <div class="tabs-bar" id="assTabsBar">
-      <button class="tab active" onclick="switchTab('ass',0,this)">SUNBURST Assortments</button>
-      <button class="tab" onclick="switchTab('ass',1,this)">Woodworkers Assortment</button>
-      <button class="tab" onclick="switchTab('ass',2,this)">Deluxe Accessory Assortment</button>
-      <button class="tab" onclick="switchTab('ass',3,this)">Deluxe Cut-Off Assortment</button>
-      <button class="tab" onclick="switchTab('ass',4,this)">General Purpose Assortment</button>
-    </div>
-    <div id="ass-0" class="tab-panel active">
+    <div id="ab-0" class="tab-panel active">
       <div class="products-grid">
-        <div class="product-card">
-          <div class="product-img"><div style="font-size:72px;">&#128257;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SB6F23</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(242)</span></div>
-            <div class="product-name">Sunburst 6" TC Radial Bristle Disc</div>
-            <div class="product-specs">Diameter: 6"</div>
+
+        <!-- Card 1 -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/c999b2ba-4acb-4607-8f5c-129085092cd5.png" alt="SUNBURST All-In-One Deluxe Assortment">
           </div>
-          <div class="product-footer">
-            <div class="product-price">$164.95</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <span class="prod-stars-ct">(242)</span>
+            </div>
+            <div class="prod-sku">SKU: 1208</div>
+            <div class="prod-name">SUNBURST All-In-One Deluxe Assortment 133/Kit</div>
+            <div class="prod-spec">Pack: Kit</div>
           </div>
-        </div>
-        <div class="product-card">
-          <div class="product-img"><div style="font-size:72px;">&#9636;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SB4C23</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(188)</span></div>
-            <div class="product-name">Sunburst TC Assortment Combo Set</div>
-            <div class="product-specs">Diameter: 4" - 6" &nbsp;|&nbsp; Mixed Grits</div>
-          </div>
-          <div class="product-footer">
-            <div class="product-price">$155.49</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-img"><div style="font-size:72px;">&#128308;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SBDX50</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(311)</span></div>
-            <div class="product-name">Sunburst 50-Pack Assortment Box</div>
-            <div class="product-specs">Diameter: 3" - 6" &nbsp;|&nbsp; 50pc Set</div>
-          </div>
-          <div class="product-footer">
-            <div class="product-price">$89.00</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
+          <div class="prod-footer">
+            <div class="prod-price">$164.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
           </div>
         </div>
-        <div class="product-card">
-          <div class="product-img"><div style="font-size:72px;">&#127774;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SBINT24</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(157)</span></div>
-            <div class="product-name">Internal Silicone Polisher Assortment</div>
-            <div class="product-specs">Type: Silicone &nbsp;|&nbsp; 24pc Set</div>
+
+        <!-- Card 2 -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/d9945fd3-f401-44ce-9aef-fffeb14b1925.png" alt="SUNBURST Favorites Assortment">
           </div>
-          <div class="product-footer">
-            <div class="product-price">$57.00</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: 1209</div>
+            <div class="prod-name">SUNBURST Favorites Assortment 116/Kit</div>
+            <div class="prod-spec">Pack: Kit</div>
+          </div>
+          <div class="prod-footer">
+            <div class="prod-price">$136.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
           </div>
         </div>
+
+        <!-- Card 3 -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/f339a6be-d12d-49b2-b4cf-d3f23bdf5051.png" alt="SUNBURST ALL-IN-ONE Silicon Carbide Assortment">
+          </div>
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: 1797</div>
+            <div class="prod-name">SUNBURST ALL-IN-ONE Silicon Carbide Assortment 78/Kit</div>
+            <div class="prod-spec">Pack: Kit</div>
+          </div>
+          <div class="prod-footer">
+            <div class="prod-price">$86.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/f59731e3-ad16-4185-a2ae-3f64ea5db9cd.png" alt="Universal Silicone Polisher Assortment">
+          </div>
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+              <img src="assets/img/015114c1-df44-4b1e-8545-73a57c701c3f.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: 7400</div>
+            <div class="prod-name">Universal Silicone Polisher Assortment 75/Kit</div>
+            <div class="prod-spec">Pack: Kit</div>
+          </div>
+          <div class="prod-footer">
+            <div class="prod-price">$87.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div id="ass-1" class="tab-panel"><div class="products-grid"><div class="product-card"><div class="product-img"><div style="font-size:64px;">&#128296;</div></div><div class="product-body"><div class="product-sku">SKU: WW001</div><div class="product-name">Woodworkers Premium Sanding Kit</div></div><div class="product-footer"><div class="product-price">$32.95</div><button class="btn-add">Add to Cart</button></div></div></div></div>
-    <div id="ass-2" class="tab-panel"><div class="products-grid"><div class="product-card"><div class="product-img"><div style="font-size:64px;">&#11088;</div></div><div class="product-body"><div class="product-sku">SKU: DA001</div><div class="product-name">Deluxe Accessory Assortment Set</div></div><div class="product-footer"><div class="product-price">$48.50</div><button class="btn-add">Add to Cart</button></div></div></div></div>
-    <div id="ass-3" class="tab-panel"><div class="products-grid"><div class="product-card"><div class="product-img"><div style="font-size:64px;">&#128935;</div></div><div class="product-body"><div class="product-sku">SKU: DC001</div><div class="product-name">Deluxe Cut-Off Assortment Kit</div></div><div class="product-footer"><div class="product-price">$29.95</div><button class="btn-add">Add to Cart</button></div></div></div></div>
-    <div id="ass-4" class="tab-panel"><div class="products-grid"><div class="product-card"><div class="product-img"><div style="font-size:64px;">&#9881;</div></div><div class="product-body"><div class="product-sku">SKU: GP001</div><div class="product-name">General Purpose Abrasive Kit</div></div><div class="product-footer"><div class="product-price">$22.95</div><button class="btn-add">Add to Cart</button></div></div></div></div>
+    <div id="ab-1" class="tab-panel"></div>
+    <div id="ab-2" class="tab-panel"></div>
+    <div id="ab-3" class="tab-panel"></div>
+    <div id="ab-4" class="tab-panel"></div>
   </div>
 </section>
 
-<!-- ===== BEST SELLERS ===== -->
-<section class="section-wrap" style="padding-top:48px;">
+<!-- ============================================================
+     BEST SELLERS
+============================================================ -->
+<section class="section bg-light">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 class="section-title">Best sellers</h2>
-      <a href="#" class="view-all">View all products &#8594;</a>
+    <div class="section-head">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Most popular</div>
+        <h2 class="section-title">Best sellers</h2>
+      </div>
+      <a href="#" class="view-all">View all products</a>
     </div>
-    <div class="tabs-bar">
-      <button class="tab active" onclick="switchTab('bs',0,this)">SUNBURST radial discs</button>
-      <button class="tab" onclick="switchTab('bs',1,this)">Carbide Goldies</button>
-      <button class="tab" onclick="switchTab('bs',2,this)">Diamond-Filled Silicone Polishers</button>
+    <div class="tabs">
+      <button class="tab-pill active" onclick="switchTab('bs',0,this)">SUNBURST radial discs</button>
+      <button class="tab-pill inactive" onclick="switchTab('bs',1,this)">Carbide Goldies</button>
+      <button class="tab-pill inactive" onclick="switchTab('bs',2,this)">Diamond-Filled Silicone Polishers</button>
     </div>
     <div id="bs-0" class="tab-panel active">
       <div class="products-grid">
-        <div class="product-card">
-          <div class="product-tag">Best for aluminium</div>
-          <div class="product-img"><div style="font-size:72px;">&#9679;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SB6F23</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(242)</span></div>
-            <div class="product-name">Sunburst 6" TC Radial Bristle Disc</div>
-            <div class="product-specs">Diameter: 6" &nbsp;|&nbsp; Grit: 400 &nbsp;|&nbsp; TC - Curved</div>
+
+        <!-- BS Card 1 - Best for aluminium -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/59537c67-dd14-4bf3-9fc9-677d689ccde4.png" alt="Sunburst TC Radial Bristle Disc">
           </div>
-          <div class="product-footer">
-            <div class="product-price">$24.95</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
+
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: SB6F23</div>
+            <div class="prod-name">Sunburst 6" TC Radial Bristle Disc</div>
+            <div class="prod-spec">Diameter: 6"</div>
+            <div class="prod-grit">
+              Grit: <span class="grit-dot"></span>
+            </div>
+            <div style="margin-top:8px;">
+              <span class="prod-tag" style="background:#daffb4;border-color:#008236;color:#008236;">Best for aluminium</span>
+            </div>
           </div>
-        </div>
-        <div class="product-card">
-          <div class="product-tag">Fast material removal</div>
-          <div class="product-img"><div style="font-size:72px;">&#128257;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SB4F21</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(188)</span></div>
-            <div class="product-name">Sunburst 4" 80-Grit Aggressive Disc</div>
-            <div class="product-specs">Diameter: 4" &nbsp;|&nbsp; Grit: 80 &nbsp;|&nbsp; TC - Flat</div>
-          </div>
-          <div class="product-footer">
-            <div class="product-price">$18.50</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-tag">Fine finish</div>
-          <div class="product-img"><div style="font-size:72px;">&#9636;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SB6F28</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9734;</span></div><span class="review-ct">(124)</span></div>
-            <div class="product-name">Sunburst 6" 1200-Grit Finishing Disc</div>
-            <div class="product-specs">Diameter: 6" &nbsp;|&nbsp; Grit: 1200 &nbsp;|&nbsp; TC - Flat</div>
-          </div>
-          <div class="product-footer">
-            <div class="product-price">$24.95</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
+          <div class="prod-footer">
+            <div class="prod-price">$24.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
           </div>
         </div>
-        <div class="product-card">
-          <div class="product-tag red">Top rated</div>
-          <div class="product-img"><div style="font-size:72px;">&#127774;</div></div>
-          <div class="product-body">
-            <div class="product-sku">SKU: SB8R20</div>
-            <div class="product-stars-row"><div class="stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="review-ct">(411)</span></div>
-            <div class="product-name">Sunburst 8" Professional Radial Disc</div>
-            <div class="product-specs">Diameter: 8" &nbsp;|&nbsp; Grit: 400 &nbsp;|&nbsp; TC - Curved</div>
+
+        <!-- BS Card 2 - Fast material removal -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/59537c67-dd14-4bf3-9fc9-677d689ccde4.png" alt="Sunburst TC Radial Bristle Disc">
           </div>
-          <div class="product-footer">
-            <div class="product-price">$34.95</div>
-            <div class="product-actions"><button class="btn-add">Add to Cart</button><button class="btn-icon">&#9825;</button></div>
+
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: SB6F23</div>
+            <div class="prod-name">Sunburst 6" TC Radial Bristle Disc</div>
+            <div class="prod-spec">Diameter: 6"</div>
+            <div class="prod-grit">Grit: <span class="grit-dot"></span></div>
+            <div style="margin-top:8px;">
+              <span class="prod-tag" style="background:#ffe9b4;border-color:#793d00;color:#793d00;">Fast material removal</span>
+            </div>
+          </div>
+          <div class="prod-footer">
+            <div class="prod-price">$24.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
           </div>
         </div>
+
+        <!-- BS Card 3 - Fine finish -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/59537c67-dd14-4bf3-9fc9-677d689ccde4.png" alt="Sunburst TC Radial Bristle Disc">
+          </div>
+
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: SB6F23</div>
+            <div class="prod-name">Sunburst 6" TC Radial Bristle Disc</div>
+            <div class="prod-spec">Diameter: 6"</div>
+            <div class="prod-grit">Grit: <span class="grit-dot"></span></div>
+            <div style="margin-top:8px;">
+              <span class="prod-tag" style="background:#dfd8ff;border-color:#3d0079;color:#3d0079;">Fine finish</span>
+            </div>
+          </div>
+          <div class="prod-footer">
+            <div class="prod-price">$24.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BS Card 4 - Fine finish -->
+        <div class="prod-card">
+          <div class="prod-img">
+            <img src="assets/img/59537c67-dd14-4bf3-9fc9-677d689ccde4.png" alt="Sunburst TC Radial Bristle Disc">
+          </div>
+
+          <div class="prod-body">
+            <div class="prod-stars">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+              <img src="assets/img/7b2f9d05-1f13-4a21-b9b4-1b068aa7e05c.svg" alt="">
+            </div>
+            <div class="prod-sku">SKU: SB6F23</div>
+            <div class="prod-name">Sunburst 6" TC Radial Bristle Disc</div>
+            <div class="prod-spec">Diameter: 6"</div>
+            <div class="prod-grit">Grit: <span class="grit-dot"></span></div>
+            <div style="margin-top:8px;">
+              <span class="prod-tag" style="background:#dfd8ff;border-color:#3d0079;color:#3d0079;">Fine finish</span>
+            </div>
+          </div>
+          <div class="prod-footer">
+            <div class="prod-price">$24.95</div>
+            <div class="prod-actions">
+              <button class="btn-add-cart">Add to cart</button>
+              <button class="btn-heart">
+                <img src="assets/img/5fa39051-bcaa-45d3-9f58-32d9d4e8e6b5.svg" alt="Save">
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div id="bs-1" class="tab-panel"><div class="products-grid"><div class="product-card"><div class="product-img"><div style="font-size:64px;">&#128997;</div></div><div class="product-body"><div class="product-sku">SKU: CG001</div><div class="product-name">Carbide Goldie Bur Set - FG</div></div><div class="product-footer"><div class="product-price">$48.00</div><button class="btn-add">Add to Cart</button></div></div></div></div>
-    <div id="bs-2" class="tab-panel"><div class="products-grid"><div class="product-card"><div class="product-img"><div style="font-size:64px;">&#128142;</div></div><div class="product-body"><div class="product-sku">SKU: DS001</div><div class="product-name">Diamond Silicone Polisher Kit</div></div><div class="product-footer"><div class="product-price">$62.00</div><button class="btn-add">Add to Cart</button></div></div></div></div>
+    <div id="bs-1" class="tab-panel"></div>
+    <div id="bs-2" class="tab-panel"></div>
   </div>
 </section>
 
-<!-- ===== CUSTOM CONFIG BANNER ===== -->
-<div class="config-banner-wrap">
-  <div class="config-banner">
-    <div class="config-left">
-      <span class="config-icon">&#9881;</span>
-      <div>
-        <div class="config-title">Custom Configuration</div>
-        <div class="config-sub">Need custom specifications? Configure your own professional abrasive solution for your exact application.</div>
-      </div>
-    </div>
-    <button class="btn-sm-navy">Configure Now</button>
-  </div>
-</div>
-
-<!-- ===== SPLIT PROMO  (PM change: new - half image / half text) ===== -->
-<div class="split-section">
-  <div class="split-row">
-    <div class="split-img-col">
-      <div class="bg-fill" style="background:linear-gradient(135deg,#1a3a6e,#2d6ea0);">&#9881;</div>
-    </div>
-    <div class="split-text-col navy">
-      <div class="split-inner">
-        <p class="split-eyebrow">Why Dedeco</p>
-        <h2 class="split-title">Engineered for the Most Demanding Work</h2>
-        <p class="split-body">From aerospace components to fine jewelry, Dedeco abrasives deliver consistent, repeatable results. Over 85 years of precision manufacturing expertise.</p>
-        <ul class="split-list">
-          <li><div class="check-circle">&#10003;</div>Superior surface finishes at every grit level</li>
-          <li><div class="check-circle">&#10003;</div>Long-lasting performance under production loads</li>
-          <li><div class="check-circle">&#10003;</div>Custom specifications available on request</li>
-        </ul>
-        <button class="btn-yellow">Explore Our Range</button>
-      </div>
-    </div>
-  </div>
-  <div class="split-row">
-    <div class="split-text-col light">
-      <div class="split-inner">
-        <p class="split-eyebrow">Brand Comparison</p>
-        <h2 class="split-title">Find the Right Finish Every Time</h2>
-        <p class="split-body">Our comparison guides help you choose between brands, grit options, and application types - so you get the right result first time.</p>
-        <ul class="split-list">
-          <li><div class="check-circle">&#10003;</div>Side-by-side brand comparison charts</li>
-          <li><div class="check-circle">&#10003;</div>Application-specific recommendations</li>
-          <li><div class="check-circle">&#10003;</div>Expert support always available</li>
-        </ul>
-        <button class="btn-navy-outline">View Selection Guide &#8594;</button>
-      </div>
-    </div>
-    <div class="split-img-col">
-      <div class="bg-fill" style="background:linear-gradient(135deg,#c89b3c,#e8b84b);">&#128300;</div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SHOP BY INDUSTRY ===== -->
-<section class="section-wrap bg-light">
+<!-- ============================================================
+     SHOP BY INDUSTRY
+============================================================ -->
+<section class="industry-section">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 class="section-title">Shop by industry</h2>
+    <div class="section-head">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Find your application</div>
+        <h2 class="section-title">Shop by industry</h2>
+      </div>
     </div>
     <div class="industry-grid">
+
+      <!-- Aerospace -->
       <div class="industry-card">
-        <div class="industry-bg-placeholder" style="background:linear-gradient(135deg,#1a2a4a,#2d4a80);">&#9992;&#65039;</div>
-        <div class="industry-overlay">
-          <div class="industry-icon-box">&#9992;&#65039;</div>
+        <div class="industry-top">
+          <div class="industry-icon-circle">
+            <img src="assets/img/efd5c604-dfbc-4e0a-8b1e-74b1eea047cf.svg" alt="Aerospace">
+          </div>
           <div class="industry-name">Aerospace</div>
           <div class="industry-desc">High-precision finishing for critical components</div>
-          <a href="#" class="industry-link">Browse tools &#8594;</a>
+        </div>
+        <div class="industry-photo">
+          <img src="assets/img/3756f73c-4d66-4dab-bc9b-0de781a96bb3.jpg" alt="Aerospace">
         </div>
       </div>
+
+      <!-- Dental -->
       <div class="industry-card">
-        <div class="industry-bg-placeholder" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4a);">&#129463;</div>
-        <div class="industry-overlay">
-          <div class="industry-icon-box">&#129463;</div>
+        <div class="industry-top">
+          <div class="industry-icon-circle">
+            <img src="assets/img/1a439cdd-3a24-4dea-bb52-5f3ccd5323de.svg" alt="Dental">
+          </div>
           <div class="industry-name">Dental</div>
           <div class="industry-desc">Professional tools for dental laboratories</div>
-          <a href="#" class="industry-link">Browse tools &#8594;</a>
+        </div>
+        <div class="industry-photo">
+          <img src="assets/img/28a77d7c-bdfa-41f0-86b6-03a0bbe71581.jpg" alt="Dental">
         </div>
       </div>
+
+      <!-- Jewelry -->
       <div class="industry-card">
-        <div class="industry-bg-placeholder" style="background:linear-gradient(135deg,#3a2a1a,#806030);">&#128142;</div>
-        <div class="industry-overlay">
-          <div class="industry-icon-box">&#128142;</div>
+        <div class="industry-top">
+          <div class="industry-icon-circle">
+            <img src="assets/img/a7d7123e-50c5-47a0-a323-3c5a8b25f86e.svg" alt="Jewelry">
+          </div>
           <div class="industry-name">Jewelry</div>
           <div class="industry-desc">Fine finishing for precious metals</div>
-          <a href="#" class="industry-link">Browse tools &#8594;</a>
+        </div>
+        <div class="industry-photo">
+          <img src="assets/img/5ad11088-4f67-44f2-8a16-82b850e4e691.jpg" alt="Jewelry">
         </div>
       </div>
+
+      <!-- Automotive -->
       <div class="industry-card">
-        <div class="industry-bg-placeholder" style="background:linear-gradient(135deg,#2a1a1a,#602020);">&#128663;</div>
-        <div class="industry-overlay">
-          <div class="industry-icon-box">&#128663;</div>
+        <div class="industry-top">
+          <div class="industry-icon-circle">
+            <img src="assets/img/1382a9ec-e60b-4a4f-9857-07854241b0db.svg" alt="Automotive">
+          </div>
           <div class="industry-name">Automotive</div>
           <div class="industry-desc">Industrial-grade solutions for manufacturing</div>
-          <a href="#" class="industry-link">Browse tools &#8594;</a>
+        </div>
+        <div class="industry-photo">
+          <img src="assets/img/80135195-33c4-4442-aff7-e7ead5a73d7b.jpg" alt="Automotive">
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===== UGC VIDEOS  (PM change: new - below shop by industry) ===== -->
+<!-- ============================================================
+     UGC VIDEOS  (PM change: real customer video section)
+============================================================ -->
 <section class="ugc-section">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 class="section-title">Real Pros, Real Results</h2>
-      <a href="#" class="view-all" style="color:rgba(255,255,255,0.55);">View all &#8594;</a>
+    <div class="section-head">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Real people. Real results.</div>
+        <h2 class="section-title">Real customers, real results</h2>
+      </div>
+      <a href="#" class="view-all">View all videos</a>
     </div>
     <div class="ugc-grid">
+
       <div class="ugc-card">
-        <div class="ugc-placeholder">
-          <div class="ugc-play-btn">&#9654;</div>
-          <div class="ugc-placeholder-txt">Placeholder - add UGC video</div>
+        <div class="ugc-thumb" style="background: linear-gradient(135deg, #1a2a40, #0f3460);">
+          <div class="ugc-play">&#9654;</div>
         </div>
         <div class="ugc-meta">
-          <div class="ugc-handle">@metalsmith_pro</div>
-          <div class="ugc-caption">Mirror finish on titanium with the 6" radial disc...</div>
+          <div class="ugc-handle">@metalmike_fab</div>
+          <div class="ugc-caption">SUNBURST discs on stainless - absolutely zero smearing, perfect finish every time</div>
         </div>
       </div>
+
       <div class="ugc-card">
-        <div class="ugc-placeholder">
-          <div class="ugc-play-btn">&#9654;</div>
-          <div class="ugc-placeholder-txt">Placeholder - add UGC video</div>
+        <div class="ugc-thumb" style="background: linear-gradient(135deg, #2a1a1a, #5c1a1a);">
+          <div class="ugc-play">&#9654;</div>
         </div>
         <div class="ugc-meta">
-          <div class="ugc-handle">@jewelry_studio_ny</div>
-          <div class="ugc-caption">These polishing points are incredible for fine detail work...</div>
+          <div class="ugc-handle">@jewelrybyjessica</div>
+          <div class="ugc-caption">Finally found a polishing system that works on curved gold surfaces - game changer</div>
         </div>
       </div>
+
       <div class="ugc-card">
-        <div class="ugc-placeholder">
-          <div class="ugc-play-btn">&#9654;</div>
-          <div class="ugc-placeholder-txt">Placeholder - add UGC video</div>
+        <div class="ugc-thumb" style="background: linear-gradient(135deg, #1a2a1a, #1a4a30);">
+          <div class="ugc-play">&#9654;</div>
         </div>
         <div class="ugc-meta">
-          <div class="ugc-handle">@aerospace_machining</div>
-          <div class="ugc-caption">Dedeco burs for critical aerospace finishing...</div>
+          <div class="ugc-handle">@dental_lab_pro</div>
+          <div class="ugc-caption">Best carbide burs for zirconia - sharp, consistent, and they last 3x longer</div>
         </div>
       </div>
+
       <div class="ugc-card">
-        <div class="ugc-placeholder">
-          <div class="ugc-play-btn">&#9654;</div>
-          <div class="ugc-placeholder-txt">Placeholder - add UGC video</div>
+        <div class="ugc-thumb" style="background: linear-gradient(135deg, #2a2a1a, #4a3a00);">
+          <div class="ugc-play">&#9654;</div>
         </div>
         <div class="ugc-meta">
-          <div class="ugc-handle">@workshop_builds</div>
-          <div class="ugc-caption">My go-to kit for custom knife finishing...</div>
+          <div class="ugc-handle">@aerospace_ops</div>
+          <div class="ugc-caption">Dedeco SR Cutters on titanium components - meeting tight tolerances every time</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===== CUSTOMER REVIEWS  (exact Figma match) ===== -->
-<section class="reviews-section">
-  <div class="section-inner">
-    <h2 class="reviews-title">Customer Reviews</h2>
-    <div class="reviews-layout">
-      <div class="reviews-summary-box">
-        <div>
-          <div class="reviews-stars-big">
-            <span class="big-star">&#9733;</span>
-            <span class="big-star">&#9733;</span>
-            <span class="big-star">&#9733;</span>
-            <span class="big-star">&#9733;</span>
-            <span class="big-star">&#9733;</span>
-          </div>
-          <div class="reviews-count-text">Based on 100,000 reviews</div>
-        </div>
-        <button class="btn-shop-now">Shop now</button>
-      </div>
-      <div class="review-card">
-        <div>
-          <div class="review-card-header">
-            <div class="stars-sm" style="font-size:15px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <span class="review-date">February 15, 2026</span>
-          </div>
-          <p class="review-text">"These discs are fantastic! Been using them for deburring stainless steel parts in our aerospace shop. The ceramic grit lasts way longer than our previous aluminum oxide discs. The finish is consistent and we've had zero issues with smearing. Worth every penny."</p>
-        </div>
-        <div class="review-author-row">
-          <span class="reviewer-name">Mike Thompson</span>
-          <div class="verified-badge">&#10003; Verified customer</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div>
-          <div class="review-card-header">
-            <div class="stars-sm" style="font-size:15px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <span class="review-date">January 20, 2026</span>
-          </div>
-          <p class="review-text">"These are now our go-to finishing discs in the jewelry shop. They blend solder joints beautifully without removing too much material. The flexibility of the bristles is perfect for working on curved surfaces. Highly recommend!"</p>
-        </div>
-        <div class="review-author-row">
-          <span class="reviewer-name">Jessica Palmer</span>
-          <div class="verified-badge">&#10003; Verified customer</div>
-        </div>
-      </div>
-    </div>
-    <div class="reviews-nav">
-      <button class="review-nav-btn">&#8592;</button>
-      <button class="review-nav-btn">&#8594;</button>
-    </div>
-  </div>
-</section>
+<!-- ============================================================
+     CUSTOMER REVIEWS
+============================================================ -->
+<div class="reviews-section">
+  <h2 class="reviews-title">Customer Reviews</h2>
+  <div class="reviews-layout">
 
-<!-- ===== SISTER BRAND: STAINO  (PM change: new section) ===== -->
-<section class="sister-section">
-  <div class="section-inner">
-    <div class="sister-inner">
+    <!-- Summary box -->
+    <div class="reviews-summary">
       <div>
-        <p class="sister-eyebrow">Sister Brand</p>
-        <h2 class="sister-title">Also From Our<br>Family of Brands</h2>
-        <p class="sister-desc">Dedeco's precision expertise extends beyond abrasives. STAINO is our clinically proven oral hygiene brand - bringing the same professional-grade quality to everyday dental care.</p>
-        <ul class="sister-list">
-          <li><div class="sister-check">&#10003;</div>Clinically proven stain removal technology</li>
-          <li><div class="sister-check">&#10003;</div>Micro-fine aluminum oxide abrasive formulation</li>
-          <li><div class="sister-check">&#10003;</div>Dentist endorsed and professionally validated</li>
-          <li><div class="sister-check">&#10003;</div>Featured in Good Housekeeping, NYT, and Shape</li>
-        </ul>
-        <a href="https://www.staino.com" target="_blank" class="btn-navy">Visit STAINO.com &#8594;</a>
+        <div class="reviews-big-stars">
+          <img src="assets/img/e0776cfd-07ae-43f4-86fd-3265269c668c.svg" alt="star">
+          <img src="assets/img/e0776cfd-07ae-43f4-86fd-3265269c668c.svg" alt="star">
+          <img src="assets/img/e0776cfd-07ae-43f4-86fd-3265269c668c.svg" alt="star">
+          <img src="assets/img/e0776cfd-07ae-43f4-86fd-3265269c668c.svg" alt="star">
+          <img src="assets/img/e0776cfd-07ae-43f4-86fd-3265269c668c.svg" alt="star">
+        </div>
+        <div class="reviews-count">Based on 100,000 reviews</div>
       </div>
-      <div style="position:relative;">
-        <div class="sister-badge-pill">SISTER BRAND</div>
-        <div class="sister-card">
-          <div class="sister-card-header">
-            <div class="sister-logo-box">STAINO</div>
-            <div>
-              <div class="sister-card-title">STAINO&reg;</div>
-              <div class="sister-card-sub">Clinically Proven Oral Hygiene</div>
-            </div>
-          </div>
-          <div class="sister-card-body">
-            <p>The only clinically proven stain removing oral hygiene accessories - powered by the same precision abrasive science behind Dedeco's professional-grade tools.</p>
-            <p>Professional formulations. Consumer accessibility. Dentist-approved results.</p>
-            <a href="https://www.staino.com" target="_blank" class="btn-navy-outline">Explore STAINO Products &#8594;</a>
-          </div>
+      <button class="btn-shop-now">Shop now</button>
+    </div>
+
+    <!-- Review 1 -->
+    <div class="review-card">
+      <div class="review-card-top">
+        <div class="review-stars">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+        </div>
+        <span class="review-date">February 15, 2026</span>
+      </div>
+      <p class="review-text">"These discs are fantastic! Been using them for deburring stainless steel parts in our aerospace shop. The ceramic grit lasts way longer than our previous aluminum oxide discs. The finish is consistent and we've had zero issues with smearing. Worth every penny."</p>
+      <div class="review-author">
+        <span class="reviewer-name">Mike Thompson</span>
+        <div class="verified-badge">
+          <img src="assets/img/7d0c94fd-78b9-4bbb-978d-bf6a1e26fccc.svg" alt="">
+          Verified customer
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== CONTACT SALES  (exact Figma match) ===== -->
-<section class="contact-section">
-  <div class="section-inner">
-    <div class="contact-inner">
-      <div class="contact-img-col">
-        <div class="contact-img-placeholder">&#128104;&#8205;&#128187;</div>
-      </div>
-      <div class="contact-text">
-        <p class="contact-eyebrow">NEED HELP?</p>
-        <h2 class="contact-title">Contact our sales team</h2>
-        <p class="contact-sub">Our product experts are here to help you find the right solution for your needs. Whether it's a standard order or a custom specification.</p>
-        <div class="contact-btns">
-          <button class="btn-navy">Get in Touch</button>
-          <button class="btn-navy-outline">View Catalog</button>
+    <!-- Review 2 -->
+    <div class="review-card">
+      <div class="review-card-top">
+        <div class="review-stars">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
+          <img src="assets/img/0d63ba62-5d58-4337-8cec-050e6e0df75a.svg" alt="star">
         </div>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-icon-box">&#128337;</div>
-            <div>
-              <div class="contact-label">Response time</div>
-              <div class="contact-val">We typically reply within 1 business day</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon-box">&#128197;</div>
-            <div>
-              <div class="contact-label">Opening hours</div>
-              <div class="contact-val">Monday - Friday 9:00 AM - 4:00 PM (CET)</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon-box">&#128205;</div>
-            <div>
-              <div class="contact-label">Address</div>
-              <div class="contact-val">Dedeco International, Inc.<br>11617 State Route 97, Long Eddy, NY 12760 USA</div>
-            </div>
-          </div>
+        <span class="review-date">January 20, 2026</span>
+      </div>
+      <p class="review-text">"These are now our go-to finishing discs in the jewelry shop. They blend solder joints beautifully without removing too much material. The flexibility of the bristles is perfect for working on curved surfaces. Highly recommend!"</p>
+      <div class="review-author">
+        <span class="reviewer-name">Jessica Palmer</span>
+        <div class="verified-badge">
+          <img src="assets/img/7d0c94fd-78b9-4bbb-978d-bf6a1e26fccc.svg" alt="">
+          Verified customer
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== TRUST BAR ===== -->
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-item"><div class="trust-dot"></div>Trusted Since 1939</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><div class="trust-dot"></div>Developed in USA</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><div class="trust-dot"></div>ISO 9001:2015</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><div class="trust-dot"></div>Same-Day Shipping Available</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><div class="trust-dot"></div>Expert Technical Support</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><div class="trust-dot"></div>100% Quality Guaranteed</div>
+  </div>
+  <div class="reviews-nav">
+    <button class="review-nav-btn" aria-label="Previous">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="review-nav-btn" aria-label="Next">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </div>
 
-<!-- ===== CTA ===== -->
+<!-- ============================================================
+     STAINO SISTER BRAND  (PM change: sister brand section)
+============================================================ -->
+<section class="staino-section">
+  <div class="section-inner">
+    <div class="staino-inner">
+      <!-- Left: copy -->
+      <div>
+        <div class="staino-eyebrow">SISTER BRAND</div>
+        <h2 class="staino-title">Meet Staino - specialty stain removal solutions</h2>
+        <p class="staino-desc">From the makers of Dedeco comes Staino, a professional line of stain removal products engineered with the same precision and quality standards our customers have trusted for over 85 years.</p>
+        <ul class="staino-list">
+          <li><span class="staino-check">&#10003;</span> Professional-grade formulas</li>
+          <li><span class="staino-check">&#10003;</span> Safe for surfaces and users</li>
+          <li><span class="staino-check">&#10003;</span> Backed by Dedeco's 85-year reputation</li>
+        </ul>
+        <a href="https://www.staino.com/" target="_blank" class="btn-yellow">Visit Staino.com &#8599;</a>
+      </div>
+      <!-- Right: brand card -->
+      <div style="position:relative; padding-top:20px;">
+        <div class="staino-badge">NEW BRAND</div>
+        <div class="staino-card">
+          <div class="staino-card-head">
+            <div class="staino-logo-box">STAINO</div>
+            <div>
+              <div class="staino-card-title">Staino</div>
+              <div class="staino-card-sub">Professional Stain Removal</div>
+            </div>
+          </div>
+          <div class="staino-card-body">
+            <p>Staino brings the same Dedeco quality to specialty cleaning and stain removal - trusted by professionals who need reliable results every time.</p>
+            <a href="https://www.staino.com/" target="_blank" class="btn-navy-outline">Explore products &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION
+============================================================ -->
+<div class="contact-wrap">
+  <div class="contact-card">
+    <img class="contact-photo contact-photo-1" src="assets/img/452ac47c-d61d-4c5c-addb-add6ebcaef12.png" alt="">
+    <img class="contact-photo contact-photo-2" src="assets/img/18568785-b257-4c77-bc0a-8510b05b1ccb.png" alt="">
+    <div class="contact-body">
+      <div class="contact-left">
+        <p class="contact-eyebrow">NEED HELP?</p>
+        <h2 class="contact-title">Contact our sales team</h2>
+        <p class="contact-desc">Our product experts are here to help you find the right solution for your needs.</p>
+        <a href="tel:8458874840" class="contact-phone">(845) 887-4840</a>
+        <a href="mailto:service@dedeco.com" class="contact-email">service@dedeco.com</a>
+      </div>
+      <div class="contact-right">
+        <div class="contact-info-item">
+          <div class="contact-icon-box">
+            <img src="assets/img/cdbddfc2-5654-4b88-923f-11218af2073a.svg" alt="Clock">
+          </div>
+          <div>
+            <div class="contact-info-label">Response time</div>
+            <div class="contact-info-val">We typically reply within 1 business day</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon-box">
+            <img src="assets/img/3378c604-b6bc-4387-8611-2d42ab4b9256.svg" alt="Calendar">
+          </div>
+          <div>
+            <div class="contact-info-label">Opening hours</div>
+            <div class="contact-info-val">Monday - Friday 9:00 AM - 4:00 PM (CET)</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon-box">
+            <img src="assets/img/1aff4eef-c818-44de-9528-12f0765e2925.svg" alt="Location">
+          </div>
+          <div>
+            <div class="contact-info-label">Opening hours</div>
+            <div class="contact-info-val">
+              <a href="https://maps.google.com/?q=11617+State+Route+97+Long+Eddy+NY+12760" target="_blank">Dedeco International, Inc.<br>11617 State Route 97, Long Eddy, NY 12760 USA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BOTTOM TRUST BAR
+============================================================ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <img src="assets/img/b67dbe66-1ad8-4741-aebf-fa13cf10893a.svg" alt="">
+      Trusted Since 1939
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <img src="assets/img/654049ed-e38e-449c-8002-19accc9c1e62.svg" alt="">
+      Developed in USA
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <img src="assets/img/8394b009-9a39-4f94-b2f4-a0382c959f05.svg" alt="">
+      ISO 9001:2015
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <img src="assets/img/0428a397-7a75-42f8-8c57-2ba888ab7f0a.svg" alt="">
+      Same-Day Shipping Available
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <img src="assets/img/cf4a3609-4c37-47be-b0be-84f61099cbdc.svg" alt="">
+      Expert Technical Support
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <img src="assets/img/1b6ee9e9-3938-4169-bb93-55d3f2f824e1.svg" alt="">
+      100% Quality Guaranteed
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CTA SECTION
+============================================================ -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-title">Ready to Get Started?</h2>
-    <p class="cta-sub">Already a customer? <a href="#" style="color:rgba(255,255,255,0.8);font-weight:600;">Log in</a> &nbsp;|&nbsp; New to Dedeco? <a href="#" style="color:rgba(255,255,255,0.8);font-weight:600;">Create an account</a></p>
+    <p class="cta-sub">Join thousands of professionals who trust Dedeco for their precision tool needs</p>
     <div class="cta-btns">
-      <button class="btn-yellow" style="font-size:16px;padding:14px 32px;">Shop All Products</button>
-      <button class="btn-white-outline" style="font-size:16px;padding:13px 28px;">Contact Us</button>
+      <a href="#" class="btn-catalog">Browse catalog</a>
+      <a href="#" class="btn-contact-sales">
+        Contact sales
+        <img src="assets/img/4ce01227-794e-43b8-a18d-ade654547547.svg" alt="">
+      </a>
     </div>
-    <p class="cta-fine">By creating an account you agree to our <a href="#" style="color:rgba(255,255,255,0.4);">Privacy Policy</a> and <a href="#" style="color:rgba(255,255,255,0.4);">Terms of Service</a></p>
+    <div class="cta-trust-items">
+      <div class="cta-trust-item">
+        <img src="assets/img/23cde9b0-d7de-49a1-9abb-f5046683901d.svg" alt="">
+        Free Shipping Over $50
+      </div>
+      <div class="cta-trust-item">
+        <img src="assets/img/91a6d355-726a-489c-9710-4d7f85b08d79.svg" alt="">
+        Expert Support
+      </div>
+      <div class="cta-trust-item">
+        <img src="assets/img/39ec6602-2bbd-498f-8cb5-95f174ab1744.svg" alt="">
+        Quality Guaranteed
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ============================================================
+     FOOTER
+============================================================ -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-grid">
+    <div class="footer-top">
+
+      <!-- Col 1: Brand -->
       <div>
-        <div class="footer-logo">DeDe<span>co</span></div>
-        <p class="footer-tagline">Precision abrasives and finishing tools. Trusted by professionals since 1939. Made in the USA.</p>
+        <div class="footer-logo-text">Dedeco</div>
         <div class="footer-social">
-          <a href="#" class="social-btn">f</a>
-          <a href="#" class="social-btn">in</a>
-          <a href="#" class="social-btn">&#9654;</a>
-          <a href="#" class="social-btn">&#64;</a>
+          <a href="#"><img src="assets/img/878abd68-35dc-4b87-968c-1acc58df23ca.svg" alt="Facebook"></a>
+          <a href="#"><img src="assets/img/9ff482e2-534c-40ef-b589-e111987fd105.svg" alt="Instagram"></a>
+          <a href="#"><img src="assets/img/ef7f5235-0e74-4365-b431-852c7daf373e.svg" alt="X"></a>
+          <a href="#"><img src="assets/img/bafd8562-96fe-44e5-90e4-d33222c593e7.svg" alt="LinkedIn"></a>
+          <a href="#"><img src="assets/img/7c7e6de2-e410-445d-bba7-37ff42820243.svg" alt="YouTube"></a>
         </div>
       </div>
+
+      <!-- Col 2: Products -->
       <div>
         <div class="footer-col-title">Products</div>
         <ul class="footer-links">
-          <li><a href="#">Radial Bristle Discs</a></li>
-          <li><a href="#">Polishing Points</a></li>
+          <li><a href="#">Sunburst Radial Discs</a></li>
           <li><a href="#">Carbide Burs</a></li>
-          <li><a href="#">Sunburst Wheels</a></li>
-          <li><a href="#">Cut-Off Wheels</a></li>
-          <li><a href="#">View All</a></li>
+          <li><a href="#">Mounted Points</a></li>
+          <li><a href="#">Abrasive Wheels</a></li>
+          <li><a href="#">Kits &amp; Assortments</a></li>
         </ul>
       </div>
+
+      <!-- Col 3: Company -->
       <div>
-        <div class="footer-col-title">Industries</div>
+        <div class="footer-col-title">Company</div>
         <ul class="footer-links">
-          <li><a href="#">Aerospace</a></li>
-          <li><a href="#">Dental</a></li>
-          <li><a href="#">Jewelry</a></li>
-          <li><a href="#">Automotive</a></li>
-          <li><a href="#">Woodworking</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Become a Distributor</a></li>
+          <li><a href="#">Blog</a></li>
         </ul>
       </div>
+
+      <!-- Col 4: Support -->
       <div>
         <div class="footer-col-title">Support</div>
         <ul class="footer-links">
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
           <li><a href="#">Returns &amp; Exchanges</a></li>
-          <li><a href="#">Product Guides</a></li>
-          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Technical Support</a></li>
+          <li><a href="#">Safety Resources</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Stay Updated</div>
-        <div class="footer-newsletter">
-          <input type="email" placeholder="Your email address" />
-          <button class="btn-sm-navy">Subscribe</button>
+
+      <!-- Col 5: Newsletter -->
+      <div style="width:400px;">
+        <div class="footer-newsletter-title">Subscribe</div>
+        <div class="footer-newsletter-row">
+          <input class="footer-email-input" type="email" placeholder="Enter your email">
+          <button class="btn-subscribe">Subscribe</button>
         </div>
-        <div style="margin-top:20px;">
-          <div class="footer-col-title" style="margin-bottom:6px;">Sister Brand</div>
-          <a href="https://www.staino.com" target="_blank" style="color:var(--yellow);font-size:13px;font-weight:600;">STAINO.com &#8594;</a>
-        </div>
+        <p class="footer-privacy">By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.</p>
       </div>
+
     </div>
+
+    <!-- Divider -->
+    <div class="footer-divider">
+      <img src="assets/img/d3eaa992-f59c-495a-8708-54865965f4e8.svg" alt="">
+    </div>
+
     <div class="footer-bottom">
-      <p>&copy; 2025 Dedeco International, Inc. All rights reserved. &nbsp;
-        <a href="#">Privacy Policy</a> &nbsp; <a href="#">Terms of Use</a>
-      </p>
-      <div class="pay-badges">
-        <div class="pay-badge">VISA</div>
-        <div class="pay-badge">MC</div>
-        <div class="pay-badge">AMEX</div>
-        <div class="pay-badge">PAYPAL</div>
-        <div class="pay-badge">SHOP</div>
+      <span class="footer-copyright">&#169; 2026 Dedeco. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies Settings</a>
+      </div>
+      <div class="footer-payments">
+        <div class="pay-badge"><img src="assets/img/805f562c-4fc8-434f-a43d-93b1e33ae2f6.svg" alt="Visa"></div>
+        <div class="pay-badge"><img src="assets/img/e18c3d3f-11b7-48d9-b248-42441b7e142a.svg" alt="Diners"></div>
+        <div class="pay-badge amex"><img src="assets/img/3ec5ca5b-b007-46d8-83bd-0dba9de72bc2.svg" alt="Amex"></div>
+        <div class="pay-badge"><img src="assets/img/5c912f14-af86-4b2c-bd30-fecc43c302ce.svg" alt="Mastercard"></div>
+        <div class="pay-badge"><img src="assets/img/01390899-fe61-411b-87a8-86b71850e04c.svg" alt="Maestro"></div>
+        <div class="pay-badge"><img src="assets/img/3d36d47c-91de-4235-b8f9-2e8a831c87a1.svg" alt="Stripe"></div>
+        <div class="pay-badge"><img src="assets/img/c8b927d6-461e-4009-b2a0-b1d9f73ec6da.svg" alt="PayPal"></div>
+        <div class="pay-badge" style="display:flex;gap:1px;padding:0 4px;">
+          <img src="assets/img/50bbee97-5fd5-43ca-abae-f80a99f88bd0.svg" alt="G" style="max-width:12px;">
+          <img src="assets/img/e8ef7c30-279c-4ed6-8b9a-76366c3a8ddf.svg" alt="Pay" style="max-width:22px;">
+        </div>
+        <div class="pay-badge"><img src="assets/img/4bf1cbe0-c394-41f5-89d9-f090dc4a2239.svg" alt="BitPay"></div>
       </div>
     </div>
   </div>
@@ -1956,12 +2410,24 @@
 
 <script>
   function switchTab(group, idx, btn) {
-    document.querySelectorAll('[id^="' + group + '-"]').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('[id^="' + group + '-"]').forEach(function(p) {
+      p.classList.remove('active');
+    });
     var panel = document.getElementById(group + '-' + idx);
     if (panel) panel.classList.add('active');
-    btn.closest('.tabs-bar').querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    btn.closest('.tabs').querySelectorAll('.tab-pill').forEach(function(b) {
+      b.classList.remove('active');
+      b.classList.add('inactive');
+    });
+    btn.classList.remove('inactive');
     btn.classList.add('active');
   }
+
+  function scrollCat(dir) {
+    var el = document.getElementById('catScroll');
+    el.scrollBy({ left: dir * 220, behavior: 'smooth' });
+  }
 </script>
+
 </body>
 </html>
